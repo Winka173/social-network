@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./Messenger.css";
 
-import { auth } from "../../Firebase/Firebase";
 import { useHistory } from "react-router";
 import { ChatEngine } from "react-chat-engine";
 import { useAuthContext } from "../../Store/AuthContext";
