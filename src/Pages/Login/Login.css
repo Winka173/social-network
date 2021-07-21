@@ -120,3 +120,16 @@
   cursor: pointer;
   padding: 0 16px;
 }
+
+.login-google button,
+.login-facebook button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+
+.login-google button:hover,
+.login-facebook button:hover {
+  cursor: pointer;
+}

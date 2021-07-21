@@ -1,9 +1,19 @@
 import React from "react";
 import "./Login.css";
-import google from "../../Assets/google.svg";
-import facebook from "../../Assets/facebook.svg";
+import { google, facebook } from "../../Assets/index";
+import firebase from "firebase/app";
+import "firebase/app";
+import { auth } from "../../Firebase/Firebase";
 
 const Login = () => {
+  const googleSignIn = () => {
+    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  };
+
+  const facebookSignIn = () => {
+    auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+  };
+
   return (
     <div className="login">
       <div className="login-wrapper container">
@@ -25,10 +35,14 @@ const Login = () => {
             <div className="login-other">
               <div className="login-other-desc">Or login with</div>
               <div className="login-google">
-                <img src={google} className="App-logo" alt="logo" />
+                <button onClick={googleSignIn}>
+                  <img src={google} alt="logo" />
+                </button>
               </div>
               <div className="login-facebook">
-                <img src={facebook} className="App-logo" alt="logo" />
+                <button onClick={facebookSignIn}>
+                  <img src={facebook} alt="logo" />
+                </button>
               </div>
             </div>
             <button className="login-register-button">
