@@ -7,11 +7,11 @@ import { auth } from "../../Firebase/Firebase";
 
 const Login = () => {
   const googleSignIn = () => {
-    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   };
 
   const facebookSignIn = () => {
-    auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+    auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   };
 
   return (

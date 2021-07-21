@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./Messenger.css";
-
-import { useHistory } from "react-router";
 import { ChatEngine } from "react-chat-engine";
 import { useAuthContext } from "../../Store/AuthContext";
 import axios from "axios";
+import MessengerTopHeader from "./MessengerTopHeader";
 
 const Messenger = () => {
-  const history = useHistory();
   const { user } = useAuthContext();
   const [loading, setLoading] = useState(true);
 
-  // const handleLogOut = async () => {
-  //   await auth.signOut();
-  //   history.push("/login");
-  // };
+  const getFile = useCallback(
+    () => async (url) => {
+      const response = await fetch(url);
+      const data = await response.blob();
 
-  const getFile = async (url) => {
-    const response = await fetch(url);
-    const data = await response.blob();
-
-    return new File([data], "userPhoto.jpg", { type: "image/jpeg" });
-  };
+      return new File([data], `${user.email}.jpg`, { type: "image/jpeg" });
+    },
+    [user]
+  );
 
   useEffect(() => {
     if (!user) {
-      history.push("/login");
       return;
     }
 
@@ -59,19 +54,19 @@ const Messenger = () => {
             .catch((error) => console.log(error));
         });
       });
-  }, [user, history]);
+  }, [user, getFile]);
 
   if (!user || loading) return "Loading...";
   return (
-    <div className="chat">
-      <div className="chat-right">
-        <ChatEngine
-          height="100vh"
-          projectID={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID}
-          userName={user.email}
-          userSecret={user.uid}
-        />
-      </div>
+    <div className="messenger">
+      <MessengerTopHeader />
+      <ChatEngine
+        offset={7}
+        height="calc(100vh - 100px)"
+        projectID={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID}
+        userName={user.email}
+        userSecret={user.uid}
+      />
     </div>
   );
 };

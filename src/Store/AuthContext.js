@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const history = useHistory();
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const subscribeStateChanged = auth.onAuthStateChanged((user) => {
       setUser(user);
       setLoading(false);
       if (user) {
@@ -21,12 +21,13 @@ export const AuthProvider = ({ children }) => {
         history.push("/login");
       }
     });
+    return () => subscribeStateChanged();
   }, [user, history]);
 
-  const userValue = { user };
+  const value = { user };
 
   return (
-    <AuthContext.Provider value={userValue}>
+    <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
   );
