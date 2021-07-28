@@ -1,8 +1,13 @@
 import React from "react";
 import "./HomeTopBar.css";
 import { mess, notification, menu } from "../../Assets/index";
+import { useHistory } from "react-router";
 
 const HomeTopBar = () => {
+  const history = useHistory();
+  const navigateMessenger = () => {
+    history.push("/messenger");
+  };
   return (
     <div className="top-bar">
       <div className="top-bar-logo">
@@ -26,7 +31,7 @@ const HomeTopBar = () => {
           <img src={menu} alt="menu" />
           <div className="user-notification">2</div>
         </button>
-        <button className="user-button">
+        <button onClick={navigateMessenger} className="user-button">
           <img src={mess} alt="logo" />
           <div className="user-notification">2</div>
         </button>

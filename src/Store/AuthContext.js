@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       setLoading(false);
       if (user) {
-        history.push("/messenger");
+        history.push("/");
       } else {
         history.push("/login");
       }
