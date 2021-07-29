@@ -1,4 +1,23 @@
 .home {
   background: #f0f2f5;
-  height: 100vh;
+  height: calc(100vh - 56px);
+  margin-top: 56px;
+}
+
+.home-wrapper {
+  display: flex;
+  padding: 7px 14px;
+  gap: 40px;
+}
+
+.left-bar {
+  flex: 2;
+}
+
+.feed {
+  flex: 5;
+}
+
+.right-bar {
+  flex: 3;
 }

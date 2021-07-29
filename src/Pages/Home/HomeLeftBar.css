@@ -1,0 +1,35 @@
+.left-bar-list {
+  padding: 0;
+}
+
+.left-bar-item {
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  background: inherit;
+}
+
+.left-bar-item-wrapper {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+}
+
+.left-bar-item:hover {
+  background: #e3e5e9;
+  border-radius: 10px;
+}
+
+.left-bar-item-button-desc {
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(15, 5, 5);
+}
+
+.left-bar-item-button-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
