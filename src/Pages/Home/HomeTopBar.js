@@ -1,5 +1,5 @@
 import React from "react";
-import "./HomeTopBar.css";
+import styles from "./HomeTopBar.module.css";
 import { mess, notification, menu, setting } from "../../Assets/index";
 import { useHistory } from "react-router";
 
@@ -33,28 +33,32 @@ const HomeTopBar = () => {
   ];
 
   return (
-    <div className="top-bar">
-      <div className="top-bar-logo">
+    <div className={styles.topBar}>
+      <div className={styles.topBarLogo}>
         <button>W</button>
         Winka
       </div>
-      <div className="top-bar-search">
-        <input placeholder="Search" className="search-input" />
+      <div className={styles.topBarSearch}>
+        <input placeholder="Search" className={styles.searchInput} />
       </div>
-      <div className="top-bar-button">
-        <button className="user-profile">
+      <div className={styles.topBarButton}>
+        <button className={styles.userProfile}>
           <img
             src="https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg"
-            className="user-avatar"
+            className={styles.userAvatar}
             alt="user-avatar"
           />
-          <span className="user-name">Quốc Nguyễn</span>
+          <span className={styles.userName}>Quốc Nguyễn</span>
         </button>
 
         {topBarMenu.map((item, index) => (
-          <button key={index} onClick={item.event} className="user-button">
+          <button
+            key={index}
+            onClick={item.event}
+            className={styles.userButton}
+          >
             <img src={item.src} alt="menu" />
-            <div className="user-notification">{item.notification}</div>
+            <div className={styles.userNotification}>{item.notification}</div>
           </button>
         ))}
       </div>

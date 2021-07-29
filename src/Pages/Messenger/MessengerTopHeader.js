@@ -1,5 +1,5 @@
 import React from "react";
-import "./MessengerTopHeader.css";
+import styles from "./MessengerTopHeader.module.css";
 import { auth } from "../../Firebase/Firebase";
 import { useHistory } from "react-router";
 
@@ -14,11 +14,11 @@ export default function MessengerTopHeader() {
   };
 
   return (
-    <div className="top-header">
-      <div onClick={navigateHome} className="top-header-logo">
+    <div className={styles.topHeader}>
+      <div onClick={navigateHome} className={styles.topHeaderLogo}>
         Winka
       </div>
-      <div className="top-header-button">
+      <div className={styles.topHeaderButton}>
         <button onClick={handleLogOut}>Log out</button>
       </div>
     </div>

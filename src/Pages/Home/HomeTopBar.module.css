@@ -1,4 +1,4 @@
-.top-bar {
+.topBar {
   position: fixed;
   top: 0;
   width: 100vw;
@@ -10,13 +10,13 @@
   box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
 }
 
-.top-bar-search {
+.topBarSearch {
   display: flex;
   align-items: center;
   flex: 5;
 }
 
-.search-input {
+.searchInput {
   width: 100%;
   border-radius: 50px;
   border: 1px solid #dddfe2;
@@ -25,7 +25,7 @@
   height: 38px;
 }
 
-.top-bar-logo {
+.topBarLogo {
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
   flex: 2;
 }
 
-.top-bar-logo button {
+.topBarLogo button {
   padding: 0 10px;
   border: 0;
   background: #4267b2;
@@ -45,14 +45,14 @@
   margin-right: 10px;
 }
 
-.top-bar-button {
+.topBarButton {
   display: flex;
   align-items: center;
   flex: 3;
   justify-content: flex-end;
 }
 
-.user-profile {
+.userProfile {
   border: none;
   background: transparent;
   display: flex;
@@ -62,18 +62,18 @@
   transition: all 0.2s;
 }
 
-.user-profile:hover {
+.userProfile:hover {
   background: #eeeff1;
 }
 
-.user-avatar {
+.userAvatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.user-name {
+.userName {
   font-size: 15px;
   font-weight: 600;
   color: rgb(5, 5, 5);
@@ -81,7 +81,7 @@
   padding-right: 10px;
 }
 
-.user-button {
+.userButton {
   width: 40px;
   height: 40px;
   background: rgb(228, 230, 235);
@@ -93,7 +93,7 @@
   position: relative;
 }
 
-.user-notification {
+.userNotification {
   position: absolute;
   color: white;
   top: -5px;
@@ -107,15 +107,15 @@
   justify-content: center;
 }
 
-.user-button:hover {
+.userButton:hover {
   background: #d3d4d8;
 }
 
-.user-button img {
+.userButton img {
   width: 20px;
   height: 20px;
 }
 
-.top-bar-button button:hover {
+.topBarButton button:hover {
   cursor: pointer;
 }

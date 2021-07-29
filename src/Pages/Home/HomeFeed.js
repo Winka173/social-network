@@ -1,8 +1,15 @@
 import React from "react";
-import "./HomeFeed.css";
+import styles from "./HomeFeed.module.css";
+import HomeFeedStatus from "./HomeFeedStatus";
+import HomeFeedNew from "./HomeFeedNew";
 
 const HomeFeed = () => {
-  return <div className="">feed</div>;
+  return (
+    <div className={styles}>
+      <HomeFeedNew />
+      <HomeFeedStatus />
+    </div>
+  );
 };
 
 export default HomeFeed;

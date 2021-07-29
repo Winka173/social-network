@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+import styles from "./Home.module.css";
 import HomeTopBar from "./HomeTopBar";
 import HomeLeftBar from "./HomeLeftBar";
 import HomeFeed from "./HomeFeed";
@@ -7,16 +7,16 @@ import HomeRightBar from "./HomeRightBar";
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className={styles.home}>
       <HomeTopBar />
-      <div className="home-wrapper">
-        <div className="left-bar">
+      <div className={styles.homeWrapper}>
+        <div className={styles.leftBar}>
           <HomeLeftBar />
         </div>
-        <div className="feed">
+        <div className={styles.feed}>
           <HomeFeed />
         </div>
-        <div className="right-bar">
+        <div className={styles.rightBar}>
           <HomeRightBar />
         </div>
       </div>

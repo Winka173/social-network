@@ -11,6 +11,7 @@ import group from "./group.png";
 import page from "./page.png";
 import messenger from "./messenger.png";
 import setting from "./setting.png";
+import threeDot from "./threeDot.png";
 
 export {
   messenger,
@@ -26,4 +27,5 @@ export {
   notification,
   menu,
   bookmark,
+  threeDot,
 };

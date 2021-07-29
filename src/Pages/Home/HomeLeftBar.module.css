@@ -1,8 +1,8 @@
-.left-bar-list {
+.leftBarList {
   padding: 0;
 }
 
-.left-bar-item {
+.leftBarItem {
   transition: all 0.2s;
   cursor: pointer;
   border: none;
@@ -10,25 +10,25 @@
   background: inherit;
 }
 
-.left-bar-item-wrapper {
+.leftBarItemWrapper {
   padding: 8px 0;
   display: flex;
   align-items: center;
 }
 
-.left-bar-item:hover {
+.leftBarItem:hover {
   background: #e3e5e9;
   border-radius: 10px;
 }
 
-.left-bar-item-button-desc {
+.leftBarItemDesc {
   padding-left: 10px;
   font-size: 15px;
   font-weight: 600;
   color: rgb(15, 5, 5);
 }
 
-.left-bar-item-button-icon {
+.leftBarItemIcon {
   width: 28px;
   height: 28px;
   border-radius: 50%;

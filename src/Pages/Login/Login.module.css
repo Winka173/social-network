@@ -4,44 +4,41 @@
   background-color: #f0f2f5;
 }
 
-.login-wrapper {
+.loginWrapper {
   display: flex;
   gap: 40px;
+  max-width: 1000px;
+  margin: 0px auto;
+  padding: 20px 0;
 }
 
-.login-left {
+.loginLeft {
   flex: 5;
 }
 
-.login-right {
+.loginRight {
   flex: 4;
 }
 
-.login-left .login-right {
+.loginLeft .loginRight {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.login-logo {
+.loginLogo {
   font-size: 50px;
   font-weight: 800;
   color: #1775ee;
   margin-bottom: 10px;
 }
 
-.login-desc {
+.loginDesc {
   font-size: 28px;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0px auto;
-  padding: 20px 0;
-}
-
-.login-box {
+.loginBox {
   padding: 12px 20px 24px 20px;
   background-color: white;
   border-radius: 10px;
@@ -51,7 +48,7 @@
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 
-.login-input {
+.loginInput {
   height: 50px;
   border-radius: 6px;
   border: 1px solid #dddfe2;
@@ -61,11 +58,11 @@
   margin-bottom: 8px;
 }
 
-.login-input:focus {
+.loginInput:focus {
   outline: none;
 }
 
-.login-button {
+.loginButton {
   height: 50px;
   border-radius: 6px;
   border: none;
@@ -75,9 +72,14 @@
   font-weight: 500;
   cursor: pointer;
   margin-top: 8px;
+  transition: all 0.2s;
 }
 
-.login-forgot {
+.loginButton:hover {
+  background-color: #579df8;
+}
+
+.loginForgot {
   text-align: center;
   color: #1775ee;
   margin-top: 16px;
@@ -85,22 +87,22 @@
   font-weight: 500;
 }
 
-.login-forgot:hover {
+.loginForgot:hover {
   text-decoration: underline;
 }
 
-.login-other {
+.loginOther {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 10px;
 }
 
-.login-other-desc {
+.loginOtherDesc {
   padding-right: 20px;
 }
 
-.login-slash {
+.loginSlash {
   align-items: center;
   border-bottom: 1px solid #dadde1;
   display: flex;
@@ -108,7 +110,7 @@
   text-align: center;
 }
 
-.login-register-button {
+.loginRegisterButton {
   align-self: center;
   height: 50px;
   border-radius: 10px;
@@ -119,17 +121,22 @@
   font-weight: 500;
   cursor: pointer;
   padding: 0 16px;
+  transition: all 0.2s;
 }
 
-.login-google button,
-.login-facebook button {
+.loginRegisterButton:hover {
+  background-color: #7adb69;
+}
+
+.loginGoogle button,
+.loginFacebook button {
   padding: 0;
   margin: 0;
   border: 0;
   background: transparent;
 }
 
-.login-google button:hover,
-.login-facebook button:hover {
+.loginGoogle button:hover,
+.loginFacebook button:hover {
   cursor: pointer;
 }

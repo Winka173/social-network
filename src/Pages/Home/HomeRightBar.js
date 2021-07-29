@@ -1,8 +1,8 @@
 import React from "react";
-import "./HomeRightBar.css";
+import styles from "./HomeRightBar.module.css";
 
 const HomeRightBar = () => {
-  return <div className="">right bar</div>;
+  return <div className={styles}>right bar</div>;
 };
 
 export default HomeRightBar;

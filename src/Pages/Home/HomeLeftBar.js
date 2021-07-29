@@ -1,5 +1,5 @@
 import React from "react";
-import "./HomeLeftBar.css";
+import styles from "./HomeLeftBar.module.css";
 import { bookmark, friend, group, page, messenger } from "../../Assets/index";
 
 const HomeLeftBar = () => {
@@ -30,17 +30,17 @@ const HomeLeftBar = () => {
     },
   ];
   return (
-    <div className="left-bar">
-      <div className="left-bar-list">
+    <div className={styles.leftBar}>
+      <div className={styles.leftBarList}>
         {icons.map((icon, index) => (
-          <button key={index} className="left-bar-item">
-            <div className="left-bar-item-wrapper">
+          <button key={index} className={styles.leftBarItem}>
+            <div className={styles.leftBarItemWrapper}>
               <img
-                className="left-bar-item-button-icon"
+                className={styles.leftBarItemIcon}
                 src={icon.src}
                 alt="friend"
               />
-              <span className="left-bar-item-button-desc">{icon.name}</span>
+              <span className={styles.leftBarItemDesc}>{icon.name}</span>
             </div>
           </button>
         ))}

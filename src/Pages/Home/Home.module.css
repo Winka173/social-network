@@ -4,13 +4,13 @@
   margin-top: 56px;
 }
 
-.home-wrapper {
+.homeWrapper {
   display: flex;
   padding: 7px 14px;
   gap: 40px;
 }
 
-.left-bar {
+.leftBar {
   flex: 2;
 }
 
@@ -18,6 +18,6 @@
   flex: 5;
 }
 
-.right-bar {
+.rightBar {
   flex: 3;
 }

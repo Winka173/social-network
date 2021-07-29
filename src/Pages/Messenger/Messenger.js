@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "./Messenger.css";
+import styles from "./Messenger.module.css";
 import { ChatEngine } from "react-chat-engine";
 import { useAuthContext } from "../../Store/AuthContext";
 import axios from "axios";
@@ -58,7 +58,7 @@ const Messenger = () => {
 
   if (!user || loading) return "Loading...";
   return (
-    <div className="messenger">
+    <div className={styles}>
       <MessengerTopHeader />
       <ChatEngine
         offset={7}

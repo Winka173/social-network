@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+import styles from "./Login.module.css";
 import { google, facebook } from "../../Assets/index";
 import firebase from "firebase/app";
 import "firebase/app";
@@ -15,37 +15,37 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <div className="login-wrapper container">
-        <div className="login-left">
-          <h3 className="login-logo">Winka</h3>
-          <span className="login-desc">
+    <div className={styles.login}>
+      <div className={styles.loginWrapper}>
+        <div className={styles.loginLeft}>
+          <h3 className={styles.loginLogo}>Winka</h3>
+          <span className={styles.loginDesc}>
             Connect with friends and the world around you on Winka
           </span>
         </div>
-        <div className="login-right">
-          <div className="login-box">
-            <input placeholder="Email" className="login-input" />
-            <input placeholder="Password" className="login-input" />
-            <button className="login-button">Log In</button>
-            <a href="/" className="login-forgot">
+        <div className={styles.loginRight}>
+          <div className={styles.loginBox}>
+            <input placeholder="Email" className={styles.loginInput} />
+            <input placeholder="Password" className={styles.loginInput} />
+            <button className={styles.loginButton}>Log In</button>
+            <a href="/" className={styles.loginForgot}>
               Forgot Password?
             </a>
-            <div className="login-slash"></div>
-            <div className="login-other">
-              <div className="login-other-desc">Or login with</div>
-              <div className="login-google">
+            <div className={styles.loginSlash}></div>
+            <div className={styles.loginOther}>
+              <div className={styles.loginOtherDesc}>Or login with</div>
+              <div className={styles.loginGoogle}>
                 <button onClick={googleSignIn}>
                   <img src={google} alt="logo" />
                 </button>
               </div>
-              <div className="login-facebook">
+              <div className={styles.loginFacebook}>
                 <button onClick={facebookSignIn}>
                   <img src={facebook} alt="logo" />
                 </button>
               </div>
             </div>
-            <button className="login-register-button">
+            <button className={styles.loginRegisterButton}>
               Create a New Account
             </button>
           </div>

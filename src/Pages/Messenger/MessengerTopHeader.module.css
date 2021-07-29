@@ -1,4 +1,4 @@
-.top-header {
+.topHeader {
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   background: #4267b2;
 }
 
-.top-header-logo {
+.topHeaderLogo {
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -14,12 +14,12 @@
   color: white;
 }
 
-.top-header-button {
+.topHeaderButton {
   display: flex;
   align-items: center;
 }
 
-.top-header-button button {
+.topHeaderButton button {
   font-size: 20px;
   color: white;
   padding: 0;
@@ -28,6 +28,6 @@
   background: transparent;
 }
 
-.top-header-button button:hover {
+.topHeaderButton button:hover {
   cursor: pointer;
 }
