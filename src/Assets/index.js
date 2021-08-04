@@ -12,8 +12,14 @@ import page from "./page.png";
 import messenger from "./messenger.png";
 import setting from "./setting.png";
 import threeDot from "./threeDot.png";
+import like from "./like.png";
+import liked from "./liked.png";
+import likeCount from "./likeCount.svg";
 
 export {
+  likeCount,
+  liked,
+  like,
   messenger,
   setting,
   facebook,

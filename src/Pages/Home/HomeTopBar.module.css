@@ -1,7 +1,7 @@
 .topBar {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 7px 14px;
@@ -105,6 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: cover;
 }
 
 .userButton:hover {

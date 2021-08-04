@@ -3,6 +3,54 @@
 }
 
 .feedUser {
+  padding: 10px 15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedDescription {
+  padding: 0 15px 10px 15px;
+  font-size: 15px;
+}
+
+.feedImage img {
+  width: 100%;
+}
+
+.feedImage {
+  margin-bottom: -5px;
+}
+
+.emotionTitle {
+  font-size: 15px;
+  padding-left: 8px;
+  color: rgb(101, 103, 107);
+  font-weight: 600;
+}
+
+.action {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 6px 0;
+}
+
+.action:hover {
+  background: #eeeff1;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.feedAction {
+  padding: 0 15px;
+}
+
+.feedActionWrapper {
+  padding: 5px 0;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
 }
@@ -11,8 +59,116 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .userWrapper {
   display: flex;
+  gap: 5px;
+}
+
+.userName {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(15, 5, 5);
+}
+
+.userTime {
+  color: rgb(176, 179, 184);
+  font-size: 13px;
+}
+
+.feedEmotion {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  justify-content: space-between;
+}
+
+.feedComment {
+  padding: 10px 15px;
+}
+
+.commentWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.commentBox {
+  padding: 8px 12px;
+  background: rgb(240, 242, 245);
+  border-radius: 20px;
+}
+
+.commentReact {
+  padding: 0 12px;
+}
+
+.commentReact span {
+  color: rgb(101, 103, 107);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.commentReact span:nth-child(even) {
+  color: rgb(138, 141, 145);
+  cursor: unset;
+}
+
+.commentReact span:last-of-type {
+  font-size: 12px;
+  font-weight: 400;
+  cursor: unset;
+}
+
+.commentTitle {
+  color: rgb(5, 5, 5);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.commentDesc {
+  color: rgb(5, 5, 5);
+  font-size: 15px;
+}
+
+.commentWrapper img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.emotion {
+  display: flex;
+}
+
+.comment {
+  color: rgb(101, 103, 107);
+  font-size: 15px;
+}
+
+.emotionIcon {
+  color: rgb(101, 103, 107);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.emotion span {
+  color: rgb(101, 103, 107);
+  padding-left: 6px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.likeCount {
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
 }
