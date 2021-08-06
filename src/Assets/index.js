@@ -18,8 +18,10 @@ import likeCount from "./likeCount.svg";
 import photo from "./photo.png";
 import video from "./video.png";
 import tagFriend from "./tagFriend.png";
+import banner from "./banner.png";
 
 export {
+  banner,
   photo,
   video,
   tagFriend,

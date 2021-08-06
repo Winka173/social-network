@@ -1,0 +1,85 @@
+.rightBar {
+  padding: 0;
+  position: sticky;
+  top: 63px;
+}
+
+.rightBarItem {
+  margin-left: -6px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  width: calc(100% + 6px);
+  background: inherit;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.onlineStatus {
+  width: 12px;
+  height: 12px;
+  padding: 1px;
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  border-radius: 50%;
+  background: white;
+}
+
+.title {
+  color: rgb(101, 103, 107);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+  padding-top: 5px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.active {
+  background: #52dba2;
+}
+
+.notActive {
+  background: #f02849;
+}
+
+.rightBarItemWrapper {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.rightBarItem:hover {
+  background: #e3e5e9;
+  border-radius: 10px;
+}
+
+.rightBarItemDesc {
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(15, 5, 5);
+}
+
+.rightBarItemIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}

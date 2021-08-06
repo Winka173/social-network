@@ -76,6 +76,14 @@
   color: rgb(15, 5, 5);
 }
 
+.userName:hover,
+.commentTitle:hover,
+.emotion:hover,
+.comment:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .userTime {
   color: rgb(176, 179, 184);
   font-size: 13px;
@@ -128,6 +136,11 @@
   cursor: unset;
 }
 
+.commentReact span:nth-child(odd):hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .commentTitle {
   color: rgb(5, 5, 5);
   font-size: 13px;
@@ -150,6 +163,27 @@
 .addComment {
   display: flex;
   align-items: center;
+}
+
+.addComment img:hover,
+.commentWrapper img:hover,
+.userAvatar img:hover {
+  cursor: pointer;
+}
+
+.userMore {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.userMore:hover {
+  background: #e3e5e9;
+  cursor: pointer;
 }
 
 .commentInput {
