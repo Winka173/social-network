@@ -77,7 +77,6 @@ const HomeFeedStatus = () => {
         </div>
       </div>
       <div className={styles.feedComment}>
-        <div className={styles.addComment}></div>
         {comments.map((item, index) => (
           <div key={index} className={styles.commentWrapper}>
             <img src={item.userAvatar} alt="avatar" />
@@ -96,6 +95,13 @@ const HomeFeedStatus = () => {
             </div>
           </div>
         ))}
+        <div className={styles.addComment}>
+          <img src={comments[0].userAvatar} alt="avatar" />
+          <input
+            placeholder="Write a public comment"
+            className={styles.commentInput}
+          />
+        </div>
       </div>
     </div>
   );

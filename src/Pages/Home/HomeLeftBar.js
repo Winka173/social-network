@@ -31,20 +31,18 @@ const HomeLeftBar = () => {
   ];
   return (
     <div className={styles.leftBar}>
-      <div className={styles.leftBarList}>
-        {icons.map((icon, index) => (
-          <button key={index} className={styles.leftBarItem}>
-            <div className={styles.leftBarItemWrapper}>
-              <img
-                className={styles.leftBarItemIcon}
-                src={icon.src}
-                alt="friend"
-              />
-              <span className={styles.leftBarItemDesc}>{icon.name}</span>
-            </div>
-          </button>
-        ))}
-      </div>
+      {icons.map((icon, index) => (
+        <button key={index} className={styles.leftBarItem}>
+          <div className={styles.leftBarItemWrapper}>
+            <img
+              className={styles.leftBarItemIcon}
+              src={icon.src}
+              alt="friend"
+            />
+            <span className={styles.leftBarItemDesc}>{icon.name}</span>
+          </div>
+        </button>
+      ))}
     </div>
   );
 };

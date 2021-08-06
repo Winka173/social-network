@@ -15,8 +15,14 @@ import threeDot from "./threeDot.png";
 import like from "./like.png";
 import liked from "./liked.png";
 import likeCount from "./likeCount.svg";
+import photo from "./photo.png";
+import video from "./video.png";
+import tagFriend from "./tagFriend.png";
 
 export {
+  photo,
+  video,
+  tagFriend,
   likeCount,
   liked,
   like,

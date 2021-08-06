@@ -8,6 +8,10 @@ const HomeFeed = () => {
     <div className={styles}>
       <HomeFeedNew />
       <HomeFeedStatus />
+      <HomeFeedStatus />
+      <HomeFeedStatus />
+      <HomeFeedStatus />
+      <HomeFeedStatus />
     </div>
   );
 };
