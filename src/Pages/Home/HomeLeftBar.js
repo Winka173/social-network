@@ -1,13 +1,6 @@
 import React from "react";
 import styles from "./HomeLeftBar.module.css";
-import {
-  bookmark,
-  friend,
-  group,
-  page,
-  messenger,
-  banner,
-} from "../../Assets/index";
+import { bookmark, friend, group, page, messenger } from "../../Assets/index";
 
 const HomeLeftBar = () => {
   const icons = [
