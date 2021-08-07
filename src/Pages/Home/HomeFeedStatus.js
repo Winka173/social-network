@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomeFeedStatus.module.css";
 import { threeDot, likeCount } from "../../Assets/index";
 import {
   WechatOutlined,
   LikeOutlined,
   UploadOutlined,
+  LikeFilled,
 } from "@ant-design/icons";
 import { getTimeDifferenceFromNow } from "../../Helpers/common";
+import { useAuthContext } from "../../Store/AuthContext";
+import { db } from "../../Firebase/Firebase";
 
-const HomeFeedStatus = ({ post }) => {
+const HomeFeedStatus = ({ post, id }) => {
+  const { user } = useAuthContext();
   const comments = [
     {
       userAvatar:
@@ -25,7 +29,33 @@ const HomeFeedStatus = ({ post }) => {
     },
   ];
 
+  const [isLiked, setIsLiked] = useState(false);
+
+  const setlikeStatus = () => {
+    const dbRef = db.collection("posts").doc(id);
+    !isLiked
+      ? dbRef.update({
+          likes: [...post.likes, { statusId: id, userId: user.uid }],
+        })
+      : dbRef.update({
+          likes: post.likes.filter((like) => like.userId !== user.uid),
+        });
+    setIsLiked(!isLiked);
+  };
+
+  useEffect(() => {
+    post.likes &&
+    post.likes.some((like) => like.statusId === id && like.userId === user.uid)
+      ? setIsLiked(true)
+      : setIsLiked(false);
+  }, [post.likes, user, id]);
+
   const image = post.image ? <img src={post.image} alt="feed" /> : "";
+  const like = !isLiked ? (
+    <LikeOutlined className={styles.emotionIcon} />
+  ) : (
+    <LikeFilled className={styles.emotionIcon} />
+  );
 
   if (!post) return;
   return (
@@ -51,14 +81,17 @@ const HomeFeedStatus = ({ post }) => {
       <div className={styles.feedEmotion}>
         <div className={styles.emotion}>
           <img src={likeCount} alt="like-count" />
-          <span>{post.likes}</span>
+          <span>{post.likes.length}</span>
         </div>
         <div className={styles.comment}>{post.comments.length} Comments</div>
       </div>
       <div className={styles.feedAction}>
         <div className={styles.feedActionWrapper}>
-          <div onClick={getTimeDifferenceFromNow} className={styles.action}>
-            <LikeOutlined className={styles.emotionIcon} />
+          <div
+            onClick={setlikeStatus}
+            className={`${styles.action} ${isLiked ? styles.active : ""}`}
+          >
+            {like}
             <span className={styles.emotionTitle}>Like</span>
           </div>
           <div className={styles.action}>

@@ -21,7 +21,7 @@ const HomeFeedNew = () => {
         post: status,
         time: moment(new Date()).toString(),
         comments: [],
-        likes: 0,
+        likes: [],
       };
       let docId = "";
       dbRef

@@ -28,7 +28,6 @@
 .emotionTitle {
   font-size: 15px;
   padding-left: 8px;
-  color: rgb(101, 103, 107);
   font-weight: 600;
 }
 
@@ -38,6 +37,7 @@
   justify-content: center;
   transition: all 0.2s;
   padding: 6px 0;
+  color: rgb(101, 103, 107);
 }
 
 .action:hover {
@@ -214,10 +214,13 @@
 }
 
 .emotionIcon {
-  color: rgb(101, 103, 107);
   font-size: 18px;
   display: flex;
   align-items: center;
+}
+
+.active {
+  color: rgb(32, 120, 244);
 }
 
 .emotion span {

@@ -22,7 +22,7 @@ const HomeFeed = () => {
     <div className={styles}>
       <HomeFeedNew />
       {posts.map((post) => (
-        <HomeFeedStatus post={post.data} key={post.id} />
+        <HomeFeedStatus post={post.data} id={post.id} key={post.id} />
       ))}
     </div>
   );
