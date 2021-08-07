@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Messenger.module.css";
 import { ChatEngine } from "react-chat-engine";
 import { useAuthContext } from "../../Store/AuthContext";
@@ -9,15 +9,12 @@ const Messenger = () => {
   const { user } = useAuthContext();
   const [loading, setLoading] = useState(true);
 
-  const getFile = useCallback(
-    () => async (url) => {
-      const response = await fetch(url);
-      const data = await response.blob();
+  const getFile = async (url) => {
+    const response = await fetch(url);
+    const data = await response.blob();
 
-      return new File([data], `${user.email}.jpg`, { type: "image/jpeg" });
-    },
-    [user]
-  );
+    return new File([data], "userPhoto.jpg", { type: "image/jpeg" });
+  };
 
   useEffect(() => {
     if (!user) {
@@ -54,7 +51,7 @@ const Messenger = () => {
             .catch((error) => console.log(error));
         });
       });
-  }, [user, getFile]);
+  }, [user]);
 
   if (!user || loading) return "Loading...";
   return (
