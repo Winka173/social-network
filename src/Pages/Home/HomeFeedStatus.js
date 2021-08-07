@@ -6,6 +6,7 @@ import {
   LikeOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
+import { getTimeDifferenceFromNow } from "../../Helpers/common";
 
 const HomeFeedStatus = ({ post }) => {
   const comments = [
@@ -23,6 +24,9 @@ const HomeFeedStatus = ({ post }) => {
       userComment: "I love ganyu",
     },
   ];
+
+  const image = post.image ? <img src={post.image} alt="feed" /> : "";
+
   if (!post) return;
   return (
     <div className={styles.feed}>
@@ -33,7 +37,9 @@ const HomeFeedStatus = ({ post }) => {
           </div>
           <div>
             <div className={styles.userName}>{post.name}</div>
-            <div className={styles.userTime}>2h</div>
+            <div className={styles.userTime}>
+              {getTimeDifferenceFromNow(post.time)}
+            </div>
           </div>
         </div>
         <div className={styles.userMore}>
@@ -41,9 +47,7 @@ const HomeFeedStatus = ({ post }) => {
         </div>
       </div>
       <div className={styles.feedDescription}>{post.post}</div>
-      <div className={styles.feedImage}>
-        <img src={post.image} alt="feed" />
-      </div>
+      <div className={styles.feedImage}>{image}</div>
       <div className={styles.feedEmotion}>
         <div className={styles.emotion}>
           <img src={likeCount} alt="like-count" />
@@ -53,7 +57,7 @@ const HomeFeedStatus = ({ post }) => {
       </div>
       <div className={styles.feedAction}>
         <div className={styles.feedActionWrapper}>
-          <div className={styles.action}>
+          <div onClick={getTimeDifferenceFromNow} className={styles.action}>
             <LikeOutlined className={styles.emotionIcon} />
             <span className={styles.emotionTitle}>Like</span>
           </div>

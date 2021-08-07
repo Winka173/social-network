@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./HomeLeftBar.module.css";
 import { bookmark, friend, group, page, messenger } from "../../Assets/index";
+import { useAuthContext } from "../../Store/AuthContext";
 
 const HomeLeftBar = () => {
+  const { user } = useAuthContext();
   const icons = [
     {
-      src: "https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg",
-      name: "Quốc Nguyễn",
+      src: user.photoURL,
+      name: user.displayName,
     },
     {
       src: friend,

@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./HomeTopBar.module.css";
 import { mess, notification, menu, setting } from "../../Assets/index";
 import { useHistory } from "react-router";
+import { useAuthContext } from "../../Store/AuthContext";
 
 const HomeTopBar = () => {
+  const { user } = useAuthContext();
   const history = useHistory();
   const navigateMessenger = () => {
     history.push("/messenger");
@@ -44,11 +46,11 @@ const HomeTopBar = () => {
       <div className={styles.topBarButton}>
         <button className={styles.userProfile}>
           <img
-            src="https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg"
+            src={user.photoURL}
             className={styles.userAvatar}
             alt="user-avatar"
           />
-          <span className={styles.userName}>Quốc Nguyễn</span>
+          <span className={styles.userName}>{user.displayName}</span>
         </button>
 
         {topBarMenu.map((item, index) => (

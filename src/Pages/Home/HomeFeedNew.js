@@ -5,6 +5,7 @@ import { db, storage } from "../../Firebase/Firebase";
 import { useAuthContext } from "../../Store/AuthContext";
 import ImageUploading from "react-images-uploading";
 import { v4 as uuidv4 } from "uuid";
+import moment from "moment";
 
 const HomeFeedNew = () => {
   const { user } = useAuthContext();
@@ -18,7 +19,7 @@ const HomeFeedNew = () => {
         name: user.displayName,
         avatar: user.photoURL,
         post: status,
-        time: Date().toLocaleString(),
+        time: moment(new Date()).toString(),
         comments: [],
         likes: 0,
       };
@@ -29,18 +30,27 @@ const HomeFeedNew = () => {
           docId = docRef.id;
         })
         .then(() => {
-          const fileRef = storage.child(
-            `posts/${user.uid}/${docId}/${uuidv4()}`
-          );
-          return fileRef.put(image.file);
+          if (Object.keys(image).length !== 0) {
+            const fileRef = storage.child(
+              `posts/${user.uid}/${docId}/${uuidv4()}`
+            );
+            return fileRef.put(image.file);
+          }
         })
         .then((snapshot) => {
-          return snapshot.ref.getDownloadURL();
+          if (Object.keys(image).length !== 0) {
+            return snapshot.ref.getDownloadURL();
+          }
+          return;
         })
         .then((downloadUrl) => {
           dbRef.doc(docId).update({
-            image: downloadUrl,
+            image: downloadUrl ? downloadUrl : null,
           });
+        })
+        .then(() => {
+          setStatus("");
+          setImage({});
         });
     }
   };
@@ -55,12 +65,10 @@ const HomeFeedNew = () => {
   return (
     <div className={styles.feed}>
       <div className={styles.feedWrapper}>
-        <img
-          src="https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg"
-          alt="avatar"
-        />
+        <img src={user.photoURL} alt="avatar" />
         <input
           onKeyDown={addNewFeed}
+          value={status}
           onChange={(event) => handleChangeInput(event.target.value)}
           placeholder="What's on your mind ?"
         />

@@ -8,13 +8,15 @@ const HomeFeed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      const posts = snapshot.docs.map((doc) => ({
-        data: doc.data(),
-        id: doc.id,
-      }));
-      setPosts(posts);
-    });
+    db.collection("posts")
+      .orderBy("time", "desc")
+      .onSnapshot((snapshot) => {
+        const posts = snapshot.docs.map((doc) => ({
+          data: doc.data(),
+          id: doc.id,
+        }));
+        setPosts(posts);
+      });
   }, []);
   return (
     <div className={styles}>
