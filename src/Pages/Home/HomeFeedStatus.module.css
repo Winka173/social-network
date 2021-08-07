@@ -200,6 +200,12 @@
 
 .emotion {
   display: flex;
+  align-items: center;
+}
+
+.emotion img {
+  width: 20px;
+  height: 20px;
 }
 
 .comment {

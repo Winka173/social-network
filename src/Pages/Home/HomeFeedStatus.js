@@ -7,7 +7,7 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 
-const HomeFeedStatus = () => {
+const HomeFeedStatus = ({ post }) => {
   const comments = [
     {
       userAvatar:
@@ -23,18 +23,16 @@ const HomeFeedStatus = () => {
       userComment: "I love ganyu",
     },
   ];
+  if (!post) return;
   return (
     <div className={styles.feed}>
       <div className={styles.feedUser}>
         <div className={styles.userWrapper}>
           <div className={styles.userAvatar}>
-            <img
-              src="https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg"
-              alt="avatar"
-            />
+            <img src={post.avatar} alt="avatar" />
           </div>
           <div>
-            <div className={styles.userName}>Quốc Nguyễn</div>
+            <div className={styles.userName}>{post.name}</div>
             <div className={styles.userTime}>2h</div>
           </div>
         </div>
@@ -42,23 +40,16 @@ const HomeFeedStatus = () => {
           <img src={threeDot} alt="setting" />
         </div>
       </div>
-      <div className={styles.feedDescription}>
-        Ganyu (Chinese: 甘雨 Gānyǔ, "Sweet Rain") is a playable Cryo character
-        in Genshin Impact. She serves as an emissary and secretary for the Liyue
-        Qixing.
-      </div>
+      <div className={styles.feedDescription}>{post.post}</div>
       <div className={styles.feedImage}>
-        <img
-          src="https://cdn.tgdd.vn/2021/01/campaign/icon-640x360-8.jpg"
-          alt="feed"
-        />
+        <img src={post.image} alt="feed" />
       </div>
       <div className={styles.feedEmotion}>
         <div className={styles.emotion}>
           <img src={likeCount} alt="like-count" />
-          <span>12</span>
+          <span>{post.likes}</span>
         </div>
-        <div className={styles.comment}>13 Comments</div>
+        <div className={styles.comment}>{post.comments.length} Comments</div>
       </div>
       <div className={styles.feedAction}>
         <div className={styles.feedActionWrapper}>
