@@ -13,12 +13,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const subscribeStateChanged = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      setLoading(false);
       if (user) {
+        setUser(user);
         history.push("/");
+        setLoading(false);
       } else {
         history.push("/login");
+        setLoading(false);
       }
     });
     return () => subscribeStateChanged();
