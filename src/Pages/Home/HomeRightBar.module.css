@@ -1,6 +1,6 @@
 .rightBar {
-  padding: 0;
-  position: sticky;
+  padding-right: 14px;
+  position: fixed;
   top: 68px;
 }
 

@@ -10,6 +10,7 @@ import {
 import { getTimeDifferenceFromNow } from "../../Helpers/common";
 import { useAuthContext } from "../../Store/AuthContext";
 import { db } from "../../Firebase/Firebase";
+import moment from "moment";
 
 const HomeFeedStatus = ({ post, id }) => {
   const { user } = useAuthContext();
@@ -28,6 +29,8 @@ const HomeFeedStatus = ({ post, id }) => {
       userComment: "I love ganyu",
     },
   ];
+
+  const [comment, setComment] = useState("");
 
   const [isLiked, setIsLiked] = useState(false);
 
@@ -48,6 +51,33 @@ const HomeFeedStatus = ({ post, id }) => {
       ? setIsLiked(true)
       : setIsLiked(false);
   }, [post.likes, user]);
+
+  const addComment = (event) => {
+    if (event.keyCode === 13) {
+      const dbRef = db.collection("posts").doc(id);
+      dbRef
+        .update({
+          comments: [
+            ...post.comments,
+            {
+              name: user.displayName,
+              avatar: user.photoURL,
+              comment: comment,
+              time: moment(new Date()).toString(),
+              likes: [],
+              replys: [],
+            },
+          ],
+        })
+        .then(() => {
+          setComment("");
+        });
+    }
+  };
+
+  const handleCommentChange = (input) => {
+    setComment(input);
+  };
 
   if (!post) return;
   return (
@@ -103,20 +133,20 @@ const HomeFeedStatus = ({ post, id }) => {
         </div>
       </div>
       <div className={styles.feedComment}>
-        {comments.map((item, index) => (
+        {post.comments.map((comment, index) => (
           <div key={index} className={styles.commentWrapper}>
-            <img src={item.userAvatar} alt="avatar" />
+            <img src={comment.avatar} alt="avatar" />
             <div>
               <div className={styles.commentBox}>
-                <div className={styles.commentTitle}>{item.userName}</div>
-                <div className={styles.commentDesc}>{item.userComment}</div>
+                <div className={styles.commentTitle}>{comment.name}</div>
+                <div className={styles.commentDesc}>{comment.comment}</div>
               </div>
               <div className={styles.commentReact}>
                 <span>Like</span>
                 <span> . </span>
                 <span>Reply</span>
                 <span> . </span>
-                <span>12m</span>
+                <span>{getTimeDifferenceFromNow(comment.time)}</span>
               </div>
             </div>
           </div>
@@ -124,8 +154,11 @@ const HomeFeedStatus = ({ post, id }) => {
         <div className={styles.addComment}>
           <img src={comments[0].userAvatar} alt="avatar" />
           <input
+            onChange={(event) => handleCommentChange(event.target.value)}
+            onKeyDown={addComment}
             placeholder="Write a public comment"
             className={styles.commentInput}
+            value={comment}
           />
         </div>
       </div>

@@ -1,7 +1,7 @@
 .leftBar {
-  padding: 0;
-  position: sticky;
+  position: fixed;
   top: 68px;
+  max-width: calc(100% / 10 * 2 - 30px);
 }
 
 .leftBarItem {
