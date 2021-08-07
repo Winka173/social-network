@@ -35,27 +35,19 @@ const HomeFeedStatus = ({ post, id }) => {
     const dbRef = db.collection("posts").doc(id);
     !isLiked
       ? dbRef.update({
-          likes: [...post.likes, { statusId: id, userId: user.uid }],
+          likes: [...post.likes, user.uid],
         })
       : dbRef.update({
-          likes: post.likes.filter((like) => like.userId !== user.uid),
+          likes: post.likes.filter((like) => like !== user.uid),
         });
     setIsLiked(!isLiked);
   };
 
   useEffect(() => {
-    post.likes &&
-    post.likes.some((like) => like.statusId === id && like.userId === user.uid)
+    post.likes && post.likes.some((like) => like === user.uid)
       ? setIsLiked(true)
       : setIsLiked(false);
-  }, [post.likes, user, id]);
-
-  const image = post.image ? <img src={post.image} alt="feed" /> : "";
-  const like = !isLiked ? (
-    <LikeOutlined className={styles.emotionIcon} />
-  ) : (
-    <LikeFilled className={styles.emotionIcon} />
-  );
+  }, [post.likes, user]);
 
   if (!post) return;
   return (
@@ -77,7 +69,9 @@ const HomeFeedStatus = ({ post, id }) => {
         </div>
       </div>
       <div className={styles.feedDescription}>{post.post}</div>
-      <div className={styles.feedImage}>{image}</div>
+      <div className={styles.feedImage}>
+        {post.image ? <img src={post.image} alt="feed" /> : ""}
+      </div>
       <div className={styles.feedEmotion}>
         <div className={styles.emotion}>
           <img src={likeCount} alt="like-count" />
@@ -91,7 +85,11 @@ const HomeFeedStatus = ({ post, id }) => {
             onClick={setlikeStatus}
             className={`${styles.action} ${isLiked ? styles.active : ""}`}
           >
-            {like}
+            {!isLiked ? (
+              <LikeOutlined className={styles.emotionIcon} />
+            ) : (
+              <LikeFilled className={styles.emotionIcon} />
+            )}
             <span className={styles.emotionTitle}>Like</span>
           </div>
           <div className={styles.action}>
