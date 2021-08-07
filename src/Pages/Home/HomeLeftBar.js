@@ -7,7 +7,7 @@ const HomeLeftBar = () => {
   const { user } = useAuthContext();
   const icons = [
     {
-      src: user.photoURL,
+      src: user.photoURL ? user.photoURL : null,
       name: user.displayName,
     },
     {

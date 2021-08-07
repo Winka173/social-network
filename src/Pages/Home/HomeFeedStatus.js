@@ -45,7 +45,7 @@ const HomeFeedStatus = ({ post, id }) => {
             ...post.comments,
             {
               name: user.displayName,
-              avatar: user.photoURL,
+              avatar: user.photoURL ? user.photoURL : null,
               comment: comment,
               time: moment(new Date()).toString(),
               likes: [],
@@ -127,7 +127,7 @@ const HomeFeedStatus = ({ post, id }) => {
           />
         ))}
         <div className={styles.addComment}>
-          <img src={user.photoURL} alt="avatar" />
+          <img src={user.photoURL ? user.photoURL : null} alt="avatar" />
           <input
             onChange={(event) => handleCommentChange(event.target.value)}
             onKeyDown={addComment}

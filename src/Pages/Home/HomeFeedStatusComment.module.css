@@ -13,6 +13,11 @@
   object-fit: cover;
 }
 
+.commentWrapper img,
+.commentTitle {
+  cursor: pointer;
+}
+
 .commentBox {
   padding: 8px 12px;
   background: rgb(240, 242, 245);

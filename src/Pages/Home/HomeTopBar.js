@@ -46,7 +46,7 @@ const HomeTopBar = () => {
       <div className={styles.topBarButton}>
         <button className={styles.userProfile}>
           <img
-            src={user.photoURL}
+            src={user.photoURL ? user.photoURL : null}
             className={styles.userAvatar}
             alt="user-avatar"
           />

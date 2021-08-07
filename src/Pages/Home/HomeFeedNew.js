@@ -17,7 +17,7 @@ const HomeFeedNew = () => {
       const dbRef = db.collection("posts");
       const post = {
         name: user.displayName,
-        avatar: user.photoURL,
+        avatar: user.photoURL ? user.photoURL : null,
         post: status,
         time: moment(new Date()).toString(),
         comments: [],
@@ -66,7 +66,7 @@ const HomeFeedNew = () => {
   return (
     <div className={styles.feed}>
       <div className={styles.feedWrapper}>
-        <img src={user.photoURL} alt="avatar" />
+        <img src={user.photoURL ? user.photoURL : null} alt="avatar" />
         <input
           onKeyDown={addNewFeed}
           value={status}
