@@ -11,27 +11,11 @@ import { getTimeDifferenceFromNow } from "../../Helpers/common";
 import { useAuthContext } from "../../Store/AuthContext";
 import { db } from "../../Firebase/Firebase";
 import moment from "moment";
+import HomeFeedStatusComment from "./HomeFeedStatusComment";
 
 const HomeFeedStatus = ({ post, id }) => {
   const { user } = useAuthContext();
-  const comments = [
-    {
-      userAvatar:
-        "https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg",
-      userName: "Quốc Nguyễn",
-      userComment:
-        "I spent the last few minutes doing stupid dances in front of afks in b1 dressed as luther lol",
-    },
-    {
-      userAvatar:
-        "https://allnewplayers.com/wp-content/uploads/2021/01/Genshin-Impact-Ganyu-Talents-Constellations-and-Ascension-Materials.jpg",
-      userName: "Ganbu",
-      userComment: "I love ganyu",
-    },
-  ];
-
   const [comment, setComment] = useState("");
-
   const [isLiked, setIsLiked] = useState(false);
 
   const setlikeStatus = () => {
@@ -134,25 +118,16 @@ const HomeFeedStatus = ({ post, id }) => {
       </div>
       <div className={styles.feedComment}>
         {post.comments.map((comment, index) => (
-          <div key={index} className={styles.commentWrapper}>
-            <img src={comment.avatar} alt="avatar" />
-            <div>
-              <div className={styles.commentBox}>
-                <div className={styles.commentTitle}>{comment.name}</div>
-                <div className={styles.commentDesc}>{comment.comment}</div>
-              </div>
-              <div className={styles.commentReact}>
-                <span>Like</span>
-                <span> . </span>
-                <span>Reply</span>
-                <span> . </span>
-                <span>{getTimeDifferenceFromNow(comment.time)}</span>
-              </div>
-            </div>
-          </div>
+          <HomeFeedStatusComment
+            comments={post.comments}
+            number={index}
+            key={index}
+            comment={comment}
+            id={id}
+          />
         ))}
         <div className={styles.addComment}>
-          <img src={comments[0].userAvatar} alt="avatar" />
+          <img src={user.photoURL} alt="avatar" />
           <input
             onChange={(event) => handleCommentChange(event.target.value)}
             onKeyDown={addComment}

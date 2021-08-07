@@ -100,59 +100,6 @@
   padding: 10px 15px;
 }
 
-.commentWrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 5px;
-}
-
-.commentBox {
-  padding: 8px 12px;
-  background: rgb(240, 242, 245);
-  border-radius: 20px;
-}
-
-.commentReact {
-  padding: 0 12px;
-}
-
-.commentReact span {
-  color: rgb(101, 103, 107);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.commentReact span:nth-child(even) {
-  color: rgb(138, 141, 145);
-  cursor: unset;
-}
-
-.commentReact span:last-of-type {
-  font-size: 12px;
-  font-weight: 400;
-  cursor: unset;
-}
-
-.commentReact span:nth-child(odd):hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.commentTitle {
-  color: rgb(5, 5, 5);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.commentDesc {
-  color: rgb(5, 5, 5);
-  font-size: 15px;
-}
-
-.commentWrapper img,
 .addComment img {
   width: 32px;
   height: 32px;
@@ -166,7 +113,7 @@
 }
 
 .addComment img:hover,
-.commentWrapper img:hover,
+.commentAvatar:hover,
 .userAvatar img:hover {
   cursor: pointer;
 }

@@ -62,6 +62,7 @@ const HomeFeedNew = () => {
   const handleChangeImage = (image) => {
     setImage(image[0]);
   };
+
   return (
     <div className={styles.feed}>
       <div className={styles.feedWrapper}>
