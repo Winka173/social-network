@@ -16,6 +16,7 @@
   justify-content: center;
   flex: 4;
   position: relative;
+  max-width: 520px;
 }
 
 .iconWrapper {
@@ -62,6 +63,7 @@
   flex: 2;
   padding: 7px 0;
   color: #2d88ff;
+  max-width: 360px;
 }
 
 .topBarLogo button {
@@ -80,6 +82,7 @@
   flex: 3;
   justify-content: flex-end;
   padding: 7px 0;
+  max-width: 360px;
 }
 
 .userProfile {
