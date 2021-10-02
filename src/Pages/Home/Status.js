@@ -38,6 +38,7 @@ const Status = ({ post, id }) => {
   }, [post.likes, user]);
 
   const addComment = (event) => {
+    // Enter key
     if (event.keyCode === 13) {
       const dbRef = db.collection("posts").doc(id);
       dbRef

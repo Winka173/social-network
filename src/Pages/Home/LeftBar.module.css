@@ -1,6 +1,5 @@
 .leftBar {
   position: fixed;
-  top: 68px;
   max-width: calc(100% / 10 * 2 - 30px);
   width: 100%;
 }

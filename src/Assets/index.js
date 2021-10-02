@@ -19,8 +19,18 @@ import photo from "./photo.png";
 import video from "./video.png";
 import tagFriend from "./tagFriend.png";
 import banner from "./banner.png";
+import friends from "./friends.svg";
+import groups from "./group.svg";
+import home from "./home.svg";
+import pages from "./pages.svg";
+import homeblue from "./homeBlue.svg";
 
 export {
+  homeblue,
+  friends,
+  groups,
+  home,
+  pages,
   banner,
   photo,
   video,

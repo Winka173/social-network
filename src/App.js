@@ -2,11 +2,13 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import "./App.css";
 import { Home, Login, Messenger } from "./Pages/index";
 import { AuthProvider } from "./Store/AuthContext";
+import { Provider } from "react-redux";
+import store from "./Store/Redux";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
         <AuthProvider>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -14,8 +16,8 @@ function App() {
             <Route path="/messenger" component={Messenger} />
           </Switch>
         </AuthProvider>
-      </BrowserRouter>
-    </div>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

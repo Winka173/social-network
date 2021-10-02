@@ -14,6 +14,7 @@ const AddStatus = () => {
   const [image, setImage] = useState({});
 
   const addNewFeed = (event) => {
+    // Enter key
     if (event.keyCode === 13) {
       const dbRef = db.collection("posts");
       const post = {
@@ -75,22 +76,24 @@ const AddStatus = () => {
           placeholder="What's on your mind ?"
         />
       </div>
-      <div className={styles.feedAction}>
-        <ImageUploading onChange={handleChangeImage}>
-          {({ onImageUpload }) => (
-            <div onClick={onImageUpload} className={styles.item}>
-              <img src={photo} alt="photoUpdate" />
-              <span>Add photo</span>
-            </div>
-          )}
-        </ImageUploading>
-        <div className={styles.item}>
-          <img src={video} alt="photoUpdate" />
-          <span>Add Video</span>
-        </div>
-        <div className={styles.item}>
-          <img src={tagFriend} alt="photoUpdate" />
-          <span>Tag Friend</span>
+      <div className={styles.feed}>
+        <div className={styles.feedAction}>
+          <ImageUploading onChange={handleChangeImage}>
+            {({ onImageUpload }) => (
+              <div onClick={onImageUpload} className={styles.item}>
+                <img src={photo} alt="photoUpdate" />
+                <span>Add photo</span>
+              </div>
+            )}
+          </ImageUploading>
+          <div className={styles.item}>
+            <img src={video} alt="photoUpdate" />
+            <span>Add Video</span>
+          </div>
+          <div className={styles.item}>
+            <img src={tagFriend} alt="photoUpdate" />
+            <span>Tag Friend</span>
+          </div>
         </div>
       </div>
     </Card>

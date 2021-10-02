@@ -4,17 +4,45 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 7px 14px;
+  padding: 0 14px;
   background: white;
   gap: 60px;
   box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
   z-index: 1;
 }
 
-.topBarSearch {
+.topBarIcon {
   display: flex;
-  align-items: center;
-  flex: 5;
+  justify-content: center;
+  flex: 4;
+  position: relative;
+}
+
+.iconWrapper {
+  padding: 4px 0;
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.topBarIcon .selected {
+  border-bottom: 3px solid #2d88ff;
+}
+
+.topBarIcon .selected button:hover {
+  background: transparent;
+  border: none;
+}
+
+.topBarIcon button {
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
 }
 
 .searchInput {
@@ -31,14 +59,14 @@
   display: flex;
   align-items: center;
   font-weight: 800;
-  color: #4267b2;
   flex: 2;
+  padding: 7px 0;
+  color: #2d88ff;
 }
 
 .topBarLogo button {
-  padding: 0 10px;
   border: 0;
-  background: #4267b2;
+  background: #2d88ff;
   color: white;
   font-size: 30px;
   font-weight: 800;
@@ -51,6 +79,7 @@
   align-items: center;
   flex: 3;
   justify-content: flex-end;
+  padding: 7px 0;
 }
 
 .userProfile {
@@ -120,4 +149,32 @@
 
 .topBarButton button:hover {
   cursor: pointer;
+}
+
+.icon {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .userProfile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .userProfile {
+    display: none;
+  }
+  .topBarButton {
+    flex: 2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .userProfile,
+  .topBarIcon {
+    display: none;
+  }
 }

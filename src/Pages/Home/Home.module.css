@@ -19,3 +19,31 @@
 .rightBar {
   flex: 3;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .homeWrapper {
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .leftBar {
+    display: none;
+  }
+  .feed {
+    flex: 3;
+  }
+  .rightBar {
+    flex: 1;
+  }
+  .homeWrapper {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .leftBar,
+  .rightBar {
+    display: none;
+  }
+}

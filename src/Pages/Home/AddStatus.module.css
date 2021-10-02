@@ -1,9 +1,12 @@
 .feedAction {
-  margin-top: 15px;
   border-top: 0.5px solid rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   padding: 5px 0;
+}
+
+.feed {
+  padding: 10px 15px 0 15px;
 }
 
 .item {

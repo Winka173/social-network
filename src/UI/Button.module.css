@@ -2,9 +2,10 @@
   transition: all 0.2s;
   cursor: pointer;
   border: none;
+  background: transparent;
 }
 
 .button:hover {
-  background: rgb(221, 222, 226);
+  background: rgb(229, 230, 235);
   border-radius: 10px;
 }
