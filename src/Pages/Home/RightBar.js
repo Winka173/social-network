@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "./HomeRightBar.module.css";
+import styles from "./RightBar.module.css";
 import { banner } from "../../Assets/index";
+import Button from "../../UI/Button";
 
-const HomeRightBar = () => {
+const RightBar = () => {
   const users = [
     {
       src: "https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg",
@@ -59,27 +60,29 @@ const HomeRightBar = () => {
     <div className={styles.rightBar}>
       <img className={styles.banner} src={banner} alt="banner" />
       <div className={styles.title}>Friends</div>
-      {users.map((user, index) => (
-        <button key={index} className={styles.rightBarItem}>
-          <div className={styles.rightBarItemWrapper}>
-            <img
-              className={styles.rightBarItemIcon}
-              src={user.src}
-              alt="friend"
-            />
-            <div className={styles.onlineStatus}>
-              <div
-                className={`${styles.circle}
+      <div className={styles.friends}>
+        {users.map((user, index) => (
+          <Button key={index} className={styles.rightBarItem}>
+            <div className={styles.rightBarItemWrapper}>
+              <img
+                className={styles.rightBarItemIcon}
+                src={user.src}
+                alt="friend"
+              />
+              <div className={styles.onlineStatus}>
+                <div
+                  className={`${styles.circle}
                 ${user.isOnline ? styles.active : styles.notActive}
               `}
-              ></div>
+                ></div>
+              </div>
+              <span className={styles.rightBarItemDesc}>{user.name}</span>
             </div>
-            <span className={styles.rightBarItemDesc}>{user.name}</span>
-          </div>
-        </button>
-      ))}
+          </Button>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default HomeRightBar;
+export default RightBar;

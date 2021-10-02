@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./HomeTopBar.module.css";
+import styles from "./TopBar.module.css";
 import { mess, notification, menu, setting } from "../../Assets/index";
 import { useHistory } from "react-router";
 import { useAuthContext } from "../../Store/AuthContext";
 
-const HomeTopBar = () => {
+const TopBar = () => {
   const { user } = useAuthContext();
   const history = useHistory();
   const navigateMessenger = () => {
@@ -68,4 +68,4 @@ const HomeTopBar = () => {
   );
 };
 
-export default HomeTopBar;
+export default TopBar;

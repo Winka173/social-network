@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from "./HomeFeedNew.module.css";
+import styles from "./AddStatus.module.css";
 import { photo, video, tagFriend } from "../../Assets/index";
 import { db, storage } from "../../Firebase/Firebase";
 import { useAuthContext } from "../../Store/AuthContext";
 import ImageUploading from "react-images-uploading";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
+import Card from "../../UI/Card";
 
-const HomeFeedNew = () => {
+const AddStatus = () => {
   const { user } = useAuthContext();
   const [status, setStatus] = useState("");
   const [image, setImage] = useState({});
@@ -64,7 +65,7 @@ const HomeFeedNew = () => {
   };
 
   return (
-    <div className={styles.feed}>
+    <Card>
       <div className={styles.feedWrapper}>
         <img src={user.photoURL ? user.photoURL : null} alt="avatar" />
         <input
@@ -92,8 +93,8 @@ const HomeFeedNew = () => {
           <span>Tag Friend</span>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
-export default HomeFeedNew;
+export default AddStatus;

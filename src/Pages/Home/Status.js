@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./HomeFeedStatus.module.css";
+import styles from "./Status.module.css";
 import { threeDot, likeCount } from "../../Assets/index";
 import {
   WechatOutlined,
@@ -7,13 +7,14 @@ import {
   UploadOutlined,
   LikeFilled,
 } from "@ant-design/icons";
+import Card from "../../UI/Card";
 import { getTimeDifferenceFromNow } from "../../Helpers/common";
 import { useAuthContext } from "../../Store/AuthContext";
 import { db } from "../../Firebase/Firebase";
 import moment from "moment";
-import HomeFeedStatusComment from "./HomeFeedStatusComment";
+import Comment from "./Comment";
 
-const HomeFeedStatus = ({ post, id }) => {
+const Status = ({ post, id }) => {
   const { user } = useAuthContext();
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
@@ -65,7 +66,7 @@ const HomeFeedStatus = ({ post, id }) => {
 
   if (!post) return;
   return (
-    <div className={styles.feed}>
+    <Card>
       <div className={styles.feedUser}>
         <div className={styles.userWrapper}>
           <div className={styles.userAvatar}>
@@ -118,7 +119,7 @@ const HomeFeedStatus = ({ post, id }) => {
       </div>
       <div className={styles.feedComment}>
         {post.comments.map((comment, index) => (
-          <HomeFeedStatusComment
+          <Comment
             comments={post.comments}
             number={index}
             key={index}
@@ -137,8 +138,8 @@ const HomeFeedStatus = ({ post, id }) => {
           />
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
-export default HomeFeedStatus;
+export default Status;

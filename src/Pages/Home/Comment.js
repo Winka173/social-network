@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "./HomeFeedStatusComment.module.css";
+import styles from "./Comment.module.css";
 import { likeCount } from "../../Assets/index";
 import { getTimeDifferenceFromNow } from "../../Helpers/common";
 import { useAuthContext } from "../../Store/AuthContext";
 import { db } from "../../Firebase/Firebase";
 
-const HomeFeedStatusComment = ({ number, comment, id, comments }) => {
+const Comment = ({ number, comment, id, comments }) => {
   const { user } = useAuthContext();
   const [isLiked, setIsLiked] = useState(false);
 
@@ -63,4 +63,4 @@ const HomeFeedStatusComment = ({ number, comment, id, comments }) => {
   );
 };
 
-export default HomeFeedStatusComment;
+export default Comment;

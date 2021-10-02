@@ -1,23 +1,23 @@
 import React from "react";
 import styles from "./Home.module.css";
-import HomeTopBar from "./HomeTopBar";
-import HomeLeftBar from "./HomeLeftBar";
-import HomeFeed from "./HomeFeed";
-import HomeRightBar from "./HomeRightBar";
+import TopBar from "./TopBar";
+import LeftBar from "./LeftBar";
+import NewFeed from "./NewFeed";
+import RightBar from "./RightBar";
 
 const Home = () => {
   return (
     <div className={styles.home}>
-      <HomeTopBar />
+      <TopBar />
       <div className={styles.homeWrapper}>
         <div className={styles.leftBar}>
-          <HomeLeftBar />
+          <LeftBar />
         </div>
         <div className={styles.feed}>
-          <HomeFeed />
+          <NewFeed />
         </div>
         <div className={styles.rightBar}>
-          <HomeRightBar />
+          <RightBar />
         </div>
       </div>
     </div>

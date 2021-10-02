@@ -1,16 +1,16 @@
 .rightBar {
   padding-right: 14px;
   position: fixed;
-  top: 68px;
 }
 
-.rightBarItem {
+.friends {
+  width: 100%;
   margin-left: -6px;
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
+}
+
+.friends button {
+  display: block;
   width: calc(100% + 6px);
-  background: inherit;
 }
 
 .banner {
@@ -63,11 +63,6 @@
   display: flex;
   align-items: center;
   position: relative;
-}
-
-.rightBarItem:hover {
-  background: rgb(221, 222, 226);
-  border-radius: 10px;
 }
 
 .rightBarItemDesc {

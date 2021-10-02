@@ -2,15 +2,16 @@
   position: fixed;
   top: 68px;
   max-width: calc(100% / 10 * 2 - 30px);
+  width: 100%;
 }
 
-.leftBarItem {
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
-  width: calc(100% + 6px);
-  background: inherit;
+.shortCut {
   margin-left: -6px;
+}
+
+.shortCut button {
+  display: block;
+  width: calc(100% + 6px);
 }
 
 .title {
@@ -26,11 +27,6 @@
   padding: 8px 0;
   display: flex;
   align-items: center;
-}
-
-.leftBarItem:hover {
-  background: rgb(221, 222, 226);
-  border-radius: 10px;
 }
 
 .leftBarItemDesc {

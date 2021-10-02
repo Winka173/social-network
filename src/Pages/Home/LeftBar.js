@@ -1,9 +1,11 @@
 import React from "react";
-import styles from "./HomeLeftBar.module.css";
+import styles from "./LeftBar.module.css";
 import { bookmark, friend, group, page, messenger } from "../../Assets/index";
 import { useAuthContext } from "../../Store/AuthContext";
+import Button from "../../UI/Button";
+import ToggleDarkMode from "./ToggleDarkMode";
 
-const HomeLeftBar = () => {
+const LeftBar = () => {
   const { user } = useAuthContext();
   const icons = [
     {
@@ -67,33 +69,38 @@ const HomeLeftBar = () => {
   ];
   return (
     <div className={styles.leftBar}>
-      {icons.map((icon, index) => (
-        <button key={index} className={styles.leftBarItem}>
-          <div className={styles.leftBarItemWrapper}>
-            <img
-              className={styles.leftBarItemIcon}
-              src={icon.src}
-              alt="friend"
-            />
-            <span className={styles.leftBarItemDesc}>{icon.name}</span>
-          </div>
-        </button>
-      ))}
+      <div className={styles.shortCut}>
+        {icons.map((icon, index) => (
+          <Button key={index} className={styles.leftBarItem}>
+            <div className={styles.leftBarItemWrapper}>
+              <img
+                className={styles.leftBarItemIcon}
+                src={icon.src}
+                alt="friend"
+              />
+              <span className={styles.leftBarItemDesc}>{icon.name}</span>
+            </div>
+          </Button>
+        ))}
+      </div>
       <div className={styles.title}>Short cut</div>
-      {shortCuts.map((shortCut, index) => (
-        <button key={index} className={styles.leftBarItem}>
-          <div className={styles.leftBarItemWrapper}>
-            <img
-              className={styles.shortCutIcon}
-              src={shortCut.src}
-              alt="friend"
-            />
-            <span className={styles.leftBarItemDesc}>{shortCut.name}</span>
-          </div>
-        </button>
-      ))}
+      <div className={styles.shortCut}>
+        {shortCuts.map((shortCut, index) => (
+          <Button key={index} className={styles.leftBarItem}>
+            <div className={styles.leftBarItemWrapper}>
+              <img
+                className={styles.shortCutIcon}
+                src={shortCut.src}
+                alt="friend"
+              />
+              <span className={styles.leftBarItemDesc}>{shortCut.name}</span>
+            </div>
+          </Button>
+        ))}
+      </div>
+      <ToggleDarkMode />
     </div>
   );
 };
 
-export default HomeLeftBar;
+export default LeftBar;

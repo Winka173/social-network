@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styles from "./HomeFeed.module.css";
-import HomeFeedStatus from "./HomeFeedStatus";
-import HomeFeedNew from "./HomeFeedNew";
+import styles from "./NewFeed.module.css";
+import Status from "./Status";
+import AddStatus from "./AddStatus";
 import { db } from "../../Firebase/Firebase";
 
-const HomeFeed = () => {
+const NewFeed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ const HomeFeed = () => {
   }, []);
   return (
     <div className={styles}>
-      <HomeFeedNew />
+      <AddStatus />
       {posts.map((post) => (
-        <HomeFeedStatus post={post.data} id={post.id} key={post.id} />
+        <Status post={post.data} id={post.id} key={post.id} />
       ))}
     </div>
   );
 };
 
-export default HomeFeed;
+export default NewFeed;
