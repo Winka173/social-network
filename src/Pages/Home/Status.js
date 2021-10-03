@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./Status.module.css";
 import { threeDot, likeCount } from "../../Assets/index";
 import {
@@ -18,6 +18,7 @@ const Status = ({ post, id }) => {
   const { user } = useAuthContext();
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
+  const commentInputRef = useRef();
 
   const setlikeStatus = () => {
     const dbRef = db.collection("posts").doc(id);
@@ -108,7 +109,10 @@ const Status = ({ post, id }) => {
             )}
             <span className={styles.emotionTitle}>Like</span>
           </div>
-          <div className={styles.action}>
+          <div
+            onClick={() => commentInputRef.current.focus()}
+            className={styles.action}
+          >
             <WechatOutlined className={styles.emotionIcon} />
             <span className={styles.emotionTitle}>Comment</span>
           </div>
@@ -131,6 +135,7 @@ const Status = ({ post, id }) => {
         <div className={styles.addComment}>
           <img src={user.photoURL ? user.photoURL : null} alt="avatar" />
           <input
+            ref={commentInputRef}
             onChange={(event) => handleCommentChange(event.target.value)}
             onKeyDown={addComment}
             placeholder="Write a public comment"

@@ -145,7 +145,9 @@ function AddStatusModal({ isOpen, closeModal }) {
       <div className={styles.footer}>
         <button
           onClick={addNewStatus}
-          className={`${styles.addButton} ${!status ? styles.disable : ""}`}
+          className={`${styles.addButton} ${
+            !status && Object.keys(image).length === 0 ? styles.disable : ""
+          }`}
         >
           Post
         </button>
