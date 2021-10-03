@@ -18,6 +18,10 @@
   margin-bottom: -5px;
 }
 
+.feedImage video {
+  width: 100%;
+}
+
 .emotionTitle {
   font-size: 15px;
   padding-left: 8px;

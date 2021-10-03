@@ -170,8 +170,8 @@
 }
 
 .chosenImage img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: cover;
 }
 
@@ -195,4 +195,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.videoInput {
+  display: none;
+}
+
+.video {
+  max-width: 200px;
+  max-height: 200px;
 }

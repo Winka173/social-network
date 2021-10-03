@@ -87,7 +87,15 @@ const Status = ({ post, id }) => {
       </div>
       <div className={styles.feedDescription}>{post.post}</div>
       <div className={styles.feedImage}>
-        {post.image ? <img src={post.image} alt="feed" /> : ""}
+        {post.data ? (
+          post.data.includes("mp4") ? (
+            <video src={post.data} controls />
+          ) : (
+            <img src={post.data} alt="feed" />
+          )
+        ) : (
+          ""
+        )}
       </div>
       <div className={styles.feedEmotion}>
         <div className={styles.emotion}>
