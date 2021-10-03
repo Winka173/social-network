@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./AddStatus.module.css";
 import { photo, video, tagFriend } from "../../Assets/index";
 import { useAuthContext } from "../../Store/AuthContext";
-import ImageUploading from "react-images-uploading";
 import Card from "../../UI/Card";
 import AddStatusModal from "./AddStatusModal";
 
