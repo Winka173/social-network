@@ -50,7 +50,7 @@
   object-fit: cover;
 }
 
-.feedWrapper input {
+.feedWrapper button {
   width: 100%;
   border-radius: 30px;
   border: none;
@@ -58,6 +58,12 @@
   padding-left: 15px;
   background: rgb(240, 242, 245);
   margin-left: 10px;
-  display: flex;
   line-height: 16px;
+  color: #65676b;
+  text-align: start;
+}
+
+.feedWrapper button:hover {
+  background: rgb(229, 230, 235);
+  cursor: pointer;
 }

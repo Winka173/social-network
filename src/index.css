@@ -16,3 +16,16 @@ button {
 input {
   outline: none;
 }
+
+/* Add status emoji */
+.emoji-picker-react {
+  position: absolute !important;
+  display: none !important;
+  right: 0;
+  right: -21%;
+  box-shadow: -10px -10px 16px rgb(0 0 0 / 10%) !important;
+}
+
+.emoji-picker-react.show {
+  display: block !important;
+}

@@ -19,12 +19,12 @@ const NewFeed = () => {
       });
   }, []);
   return (
-    <div className={styles}>
+    <React.Fragment>
       <AddStatus />
       {posts.map((post) => (
         <Status post={post.data} id={post.id} key={post.id} />
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 
