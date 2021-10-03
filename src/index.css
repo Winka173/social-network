@@ -27,5 +27,5 @@ input {
 }
 
 .emoji-picker-react.show {
-  display: block !important;
+  display: flex !important;
 }

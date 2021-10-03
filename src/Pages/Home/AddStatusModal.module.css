@@ -132,3 +132,67 @@
   color: #bcc0c4;
   background-color: #e4e6eb;
 }
+
+.postButton {
+  border: 1px solid rgb(206, 208, 212);
+  padding: 10px 15px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.postButton span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #050505;
+  display: flex;
+  align-items: center;
+}
+
+.buttons button {
+  border: none;
+  background: transparent;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+}
+
+.buttons img {
+  height: 30px;
+  width: 30px;
+}
+
+.chosenImage {
+  position: relative;
+  display: inline-block;
+}
+
+.chosenImage img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.chosenImage button {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  border: none;
+  background: #e4e6eb;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.chosenImage button:hover {
+  cursor: pointer;
+  background: #d0d1d4;
+}
+
+.closeImage {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -25,8 +25,10 @@ import home from "./home.svg";
 import pages from "./pages.svg";
 import homeblue from "./homeBlue.svg";
 import smile from "./smile.png";
+import location from "./location.png";
 
 export {
+  location,
   smile,
   homeblue,
   friends,

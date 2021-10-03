@@ -8,7 +8,7 @@ import moment from "moment";
 import ImageUploading from "react-images-uploading";
 import { CloseOutlined } from "@ant-design/icons";
 import Picker from "emoji-picker-react";
-import { smile } from "../../Assets/index";
+import { smile, photo, tagFriend, location } from "../../Assets/index";
 
 function AddStatusModal({ isOpen, closeModal }) {
   const { user } = useAuthContext();
@@ -21,6 +21,11 @@ function AddStatusModal({ isOpen, closeModal }) {
 
   const handleChangeImage = (image) => {
     setImage(image[0]);
+    console.log(image[0]);
+  };
+
+  const clearImage = () => {
+    setImage({});
   };
 
   const addNewStatus = (event) => {
@@ -61,6 +66,7 @@ function AddStatusModal({ isOpen, closeModal }) {
       .then(() => {
         setStatus("");
         setImage({});
+        closeModal();
       });
   };
 
@@ -76,7 +82,6 @@ function AddStatusModal({ isOpen, closeModal }) {
       emoji.classList.add("show");
     }
   };
-
   return isOpen ? (
     <Modal>
       <div className={styles.header}>
@@ -106,6 +111,36 @@ function AddStatusModal({ isOpen, closeModal }) {
           </button>
         </div>
         <Picker disableSearchBar={true} onEmojiClick={onEmojiClick} />
+        {Object.keys(image).length !== 0 ? (
+          <div className={styles.chosenImage}>
+            <img src={image.dataURL} alt="photoUpdate" />
+            <button onClick={() => clearImage()}>
+              <CloseOutlined className={styles.closeImage} />
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+        <div className={styles.postButton}>
+          <span>Add to your post</span>
+          <div className={styles.buttons}>
+            <button>
+              <ImageUploading onChange={handleChangeImage}>
+                {({ onImageUpload }) => (
+                  <div onClick={onImageUpload} className={styles.item}>
+                    <img src={photo} alt="photoUpdate" />
+                  </div>
+                )}
+              </ImageUploading>
+            </button>
+            <button>
+              <img src={tagFriend} alt="emoji" />
+            </button>
+            <button>
+              <img src={location} alt="emoji" />
+            </button>
+          </div>
+        </div>
       </div>
       <div className={styles.footer}>
         <button

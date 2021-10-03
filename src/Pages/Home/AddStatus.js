@@ -27,19 +27,15 @@ const AddStatus = () => {
       </div>
       <div className={styles.feed}>
         <div className={styles.feedAction}>
-          <ImageUploading>
-            {({ onImageUpload }) => (
-              <div onClick={onImageUpload} className={styles.item}>
-                <img src={photo} alt="photoUpdate" />
-                <span>Add photo</span>
-              </div>
-            )}
-          </ImageUploading>
-          <div className={styles.item}>
+          <div onClick={openModal} className={styles.item}>
+            <img src={photo} alt="photoUpdate" />
+            <span>Add Photo</span>
+          </div>
+          <div onClick={openModal} className={styles.item}>
             <img src={video} alt="photoUpdate" />
             <span>Add Video</span>
           </div>
-          <div className={styles.item}>
+          <div onClick={openModal} className={styles.item}>
             <img src={tagFriend} alt="photoUpdate" />
             <span>Tag Friend</span>
           </div>
