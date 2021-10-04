@@ -1,0 +1,91 @@
+.user {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+}
+
+.user:hover {
+  background: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.border {
+  margin: 12px 8px;
+  border-bottom: 1px solid #ced0d4;
+}
+
+.user img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user div {
+  margin-left: 12px;
+  text-align: start;
+}
+
+.user div span {
+  color: #1c1e21;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.user div p {
+  color: #65676b;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  transition: all 0.2s;
+  grid-template-columns: 36px 260px 24px;
+  align-items: center;
+  text-align: start;
+  padding: 8px 0;
+}
+
+.wrapper div {
+  background: #e4e6eb;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+}
+
+.wrapper span {
+  color: #1c1e21;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: block;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

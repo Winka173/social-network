@@ -2,8 +2,8 @@ import facebook from "./facebook.svg";
 import google from "./google.svg";
 import plus from "./plus.svg";
 import logout from "./logout.svg";
-import mess from "./mess.png";
-import notification from "./notification.png";
+import mess from "./mess.svg";
+import notification from "./notification.svg";
 import menu from "./menu.png";
 import bookmark from "./bookmark.png";
 import friend from "./friend.png";
@@ -26,8 +26,18 @@ import pages from "./pages.svg";
 import homeblue from "./homeBlue.svg";
 import smile from "./smile.png";
 import location from "./location.png";
+import rightarrow from "./rightarrow.png";
+import gear from "./gear.png";
+import question from "./question.png";
+import moon from "./moon.png";
+import logoutpng from "./logout.png";
 
 export {
+  logoutpng,
+  question,
+  moon,
+  gear,
+  rightarrow,
   location,
   smile,
   homeblue,

@@ -4,6 +4,7 @@ import { banner } from "../../Assets/index";
 import Button from "../../UI/Button";
 
 const RightBar = () => {
+  // Fixed data, will implement later
   const users = [
     {
       src: "https://chiasetainguyen.com/upload-file/30_5_b5b100aa86022a.jpg",

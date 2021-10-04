@@ -7,6 +7,8 @@ import ToggleDarkMode from "./ToggleDarkMode";
 
 const LeftBar = () => {
   const { user } = useAuthContext();
+
+  // Fixed data, will implement later
   const icons = [
     {
       src: user.photoURL ? user.photoURL : null,
