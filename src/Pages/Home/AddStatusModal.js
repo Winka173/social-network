@@ -22,6 +22,7 @@ function AddStatusModal({ isOpen, closeModal }) {
   const [image, setImage] = useState({});
   const [video, setVideo] = useState("");
   const [file, setFile] = useState({});
+  const [loading, setLoading] = useState(false);
   const videoInputRef = useRef();
 
   const handleChangeInput = (event) => {
@@ -48,6 +49,7 @@ function AddStatusModal({ isOpen, closeModal }) {
   };
 
   const addNewStatus = () => {
+    setLoading(true);
     const dbRef = db.collection("posts");
     const post = {
       name: user.displayName,
@@ -89,6 +91,7 @@ function AddStatusModal({ isOpen, closeModal }) {
         });
       })
       .then(() => {
+        setLoading(false);
         setStatus("");
         setImage({});
         setVideo("");
@@ -198,14 +201,12 @@ function AddStatusModal({ isOpen, closeModal }) {
         <button
           onClick={addNewStatus}
           className={`${styles.addButton} ${
-            !status &&
-            Object.keys(image).length === 0 &&
-            Object.keys(video).length === 0
+            !status && Object.keys(image).length === 0 && !video
               ? styles.disable
               : ""
-          }`}
+          } ${loading ? styles.addButtonLoading : ""}`}
         >
-          Post
+          <span>Post</span>
         </button>
       </div>
     </Modal>

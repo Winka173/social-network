@@ -181,3 +181,9 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .topBarButton {
+    display: none;
+  }
+}
