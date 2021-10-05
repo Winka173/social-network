@@ -18,7 +18,7 @@ import {
 function AddStatusModal({ isOpen, setIsOpen }) {
   const { user } = useAuthContext();
   const [status, setStatus] = useState("");
-  const [image, setImage] = useState({});
+  const [image, setImage] = useState("");
   const [video, setVideo] = useState("");
   const [fileVideo, setFileVideo] = useState({});
   const [fileImage, setFileImage] = useState({});
