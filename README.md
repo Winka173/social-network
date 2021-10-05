@@ -1,3 +1,7 @@
+**Currently published on https://winka-social-network.netlify.app/**
+
+**Currently supportlog in with Google only, the rest will come later**
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
