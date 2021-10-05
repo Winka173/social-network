@@ -1,6 +1,8 @@
 import { createStore } from "redux";
 
-const darkThemeReducer = (state = { darkTheme: false }, action) => {
+const initialState = { darkTheme: false };
+
+const darkThemeReducer = (state = initialState, action) => {
   if (action.type === "theme") {
     return {
       ...state,

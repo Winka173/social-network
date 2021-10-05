@@ -7,12 +7,17 @@ const Notification = ({ show, callback }) => {
 
   useEffect(() => {
     setShowing(show);
+    let timer;
+
     if (show) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         setShowing(false);
         callback(false);
       }, 5800);
     }
+    return () => {
+      clearTimeout(timer);
+    };
   }, [show, callback]);
 
   if (showing) {

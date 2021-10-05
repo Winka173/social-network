@@ -5,7 +5,6 @@ import { useAuthContext } from "../../Store/AuthContext";
 import { v4 as uuidv4 } from "uuid";
 import { db, storage } from "../../Firebase/Firebase";
 import moment from "moment";
-import ImageUploading from "react-images-uploading";
 import { CloseOutlined } from "@ant-design/icons";
 import Picker from "emoji-picker-react";
 import {
@@ -16,36 +15,45 @@ import {
   video as videoIcon,
 } from "../../Assets/index";
 
-function AddStatusModal({ isOpen, closeModal }) {
+function AddStatusModal({ isOpen, setIsOpen }) {
   const { user } = useAuthContext();
   const [status, setStatus] = useState("");
   const [image, setImage] = useState({});
   const [video, setVideo] = useState("");
-  const [file, setFile] = useState({});
+  const [fileVideo, setFileVideo] = useState({});
+  const [fileImage, setFileImage] = useState({});
   const [loading, setLoading] = useState(false);
   const videoInputRef = useRef();
+  const imageInputRef = useRef();
 
   const handleChangeInput = (event) => {
     setStatus(event.target.value);
   };
 
-  const handleChangeImage = (image) => {
+  const handleChangeImage = (event) => {
     setVideo("");
-    setFile({});
-    setImage(image[0]);
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    setImage(url);
+    setFileImage(file);
   };
 
   const handleChangeVideo = (event) => {
-    setImage({});
+    setImage("");
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     setVideo(url);
-    setFile(file);
+    setFileVideo(file);
   };
 
   const openInputVideo = () => {
     videoInputRef.current.value = "";
     videoInputRef.current.click();
+  };
+
+  const openInputImage = () => {
+    imageInputRef.current.value = "";
+    imageInputRef.current.click();
   };
 
   const addNewStatus = () => {
@@ -67,21 +75,21 @@ function AddStatusModal({ isOpen, closeModal }) {
         docId = docRef.id;
       })
       .then(() => {
-        if (Object.keys(image).length !== 0) {
+        if (image) {
           const fileRef = storage.child(
             `posts/${user.uid}/${docId}/${uuidv4()}.png`
           );
-          return fileRef.put(image.file);
+          return fileRef.put(fileImage);
         }
         if (video) {
           const fileRef = storage.child(
             `posts/${user.uid}/${docId}/${uuidv4()}.mp4`
           );
-          return fileRef.put(file);
+          return fileRef.put(fileVideo);
         }
       })
       .then((snapshot) => {
-        if (Object.keys(image).length !== 0 || video) {
+        if (image || video) {
           return snapshot.ref.getDownloadURL();
         }
         return;
@@ -94,10 +102,11 @@ function AddStatusModal({ isOpen, closeModal }) {
       .then(() => {
         setLoading(false);
         setStatus("");
-        setImage({});
+        setImage("");
         setVideo("");
-        setFile({});
-        closeModal();
+        setFileVideo({});
+        setFileImage({});
+        setIsOpen(false);
       });
   };
 
@@ -117,7 +126,7 @@ function AddStatusModal({ isOpen, closeModal }) {
     <Modal>
       <div className={styles.header}>
         <span>Create Post</span>
-        <button onClick={() => closeModal()} className={styles.closeButton}>
+        <button onClick={() => setIsOpen(false)} className={styles.closeButton}>
           <CloseOutlined className={styles.closeIcon} />
         </button>
       </div>
@@ -142,10 +151,15 @@ function AddStatusModal({ isOpen, closeModal }) {
           </button>
         </div>
         <Picker disableSearchBar={true} onEmojiClick={onEmojiClick} />
-        {Object.keys(image).length !== 0 ? (
+        {image ? (
           <div className={styles.chosenImage}>
-            <img src={image.dataURL} alt="photoUpdate" />
-            <button onClick={() => setImage({})}>
+            <img src={image} alt="photoUpdate" />
+            <button
+              onClick={() => {
+                setImage("");
+                setFileImage({});
+              }}
+            >
               <CloseOutlined className={styles.closeImage} />
             </button>
           </div>
@@ -158,7 +172,7 @@ function AddStatusModal({ isOpen, closeModal }) {
             <button
               onClick={() => {
                 setVideo("");
-                setFile({});
+                setFileVideo({});
               }}
             >
               <CloseOutlined className={styles.closeImage} />
@@ -170,14 +184,15 @@ function AddStatusModal({ isOpen, closeModal }) {
         <div className={styles.postButton}>
           <span>Add to your post</span>
           <div className={styles.buttons}>
-            <button>
-              <ImageUploading onChange={handleChangeImage}>
-                {({ onImageUpload }) => (
-                  <div onClick={onImageUpload} className={styles.item}>
-                    <img src={photo} alt="photoUpdate" />
-                  </div>
-                )}
-              </ImageUploading>
+            <button onClick={openInputImage}>
+              <img src={photo} alt="photoInput"></img>
+              <input
+                ref={imageInputRef}
+                className={styles.videoInput}
+                type="file"
+                onChange={handleChangeImage}
+                accept="image/png, image/gif, image/jpeg"
+              />
             </button>
             <button onClick={openInputVideo}>
               <img src={videoIcon} alt="emoji"></img>

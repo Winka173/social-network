@@ -9,32 +9,24 @@ const AddStatus = () => {
   const { user } = useAuthContext();
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
     <Card>
-      <AddStatusModal closeModal={closeModal} isOpen={isOpen} />
+      <AddStatusModal setIsOpen={setIsOpen} isOpen={isOpen} />
       <div className={styles.feedWrapper}>
         <img src={user.photoURL ? user.photoURL : null} alt="avatar" />
-        <button onClick={openModal}>What's on your mind ?</button>
+        <button onClick={() => setIsOpen(true)}>What's on your mind ?</button>
       </div>
       <div className={styles.feed}>
         <div className={styles.feedAction}>
-          <div onClick={openModal} className={styles.item}>
+          <div onClick={() => setIsOpen(true)} className={styles.item}>
             <img src={photo} alt="photoUpdate" />
             <span>Add Photo</span>
           </div>
-          <div onClick={openModal} className={styles.item}>
+          <div onClick={() => setIsOpen(true)} className={styles.item}>
             <img src={video} alt="photoUpdate" />
             <span>Add Video</span>
           </div>
-          <div onClick={openModal} className={styles.item}>
+          <div onClick={() => setIsOpen(true)} className={styles.item}>
             <img src={tagFriend} alt="photoUpdate" />
             <span>Tag Friend</span>
           </div>
