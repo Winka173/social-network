@@ -8,9 +8,15 @@ import {
   moon,
   logoutpng,
 } from "../../Assets/index";
+import { auth } from "../../Firebase/Firebase";
 
-const DropdownMenu = ({ open, close }) => {
+const DropdownMenu = () => {
   const { user } = useAuthContext();
+
+  const handleLogOut = async () => {
+    await auth.signOut();
+  };
+
   return (
     <Dropdown>
       <button className={styles.user}>
@@ -48,7 +54,7 @@ const DropdownMenu = ({ open, close }) => {
           <img className={styles.icon} src={rightarrow} alt="mess" />
         </div>
       </button>
-      <button className={styles.button}>
+      <button onClick={handleLogOut} className={styles.button}>
         <div className={styles.wrapper}>
           <div>
             <img className={styles.icon} src={logoutpng} alt="gear" />

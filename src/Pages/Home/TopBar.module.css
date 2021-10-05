@@ -157,11 +157,6 @@
   height: 20px;
 }
 
-.userButton:last-child img {
-  width: 16px;
-  height: 16px;
-}
-
 .topBarButton button:hover {
   cursor: pointer;
 }

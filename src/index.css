@@ -5,12 +5,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button {
-  font-family: inherit;
-}
-
 * {
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 input {
@@ -19,6 +16,7 @@ input {
 
 /* Add status emoji */
 .emoji-picker-react {
+  z-index: 1;
   position: absolute !important;
   display: none !important;
   right: 0;
@@ -28,4 +26,10 @@ input {
 
 .emoji-picker-react.show {
   display: flex !important;
+}
+
+@media screen and (max-width: 767px) {
+  .emoji-picker-react {
+    right: -2%;
+  }
 }

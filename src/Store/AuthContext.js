@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }) => {
         history.push("/");
         setLoading(false);
       } else {
-        setUser(null);
         history.push("/login");
+        setUser(null);
         setLoading(false);
       }
     });

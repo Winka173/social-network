@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TopBar.module.css";
 import {
   mess,
@@ -16,6 +16,7 @@ import DropdownMenu from "./DropdownMenu";
 
 const TopBar = () => {
   const { user } = useAuthContext();
+  const [showMenu, setshowMenu] = useState(false);
   const history = useHistory();
   const navigateMessenger = () => {
     history.push("/messenger");
@@ -69,11 +70,13 @@ const TopBar = () => {
         </button>
 
         <div className={styles.dropdownMenu}>
-          <button className={styles.userButton}>
+          <button
+            onClick={() => setshowMenu(!showMenu)}
+            className={styles.userButton}
+          >
             <img src={setting} alt="setting" />
-            <div className={styles.userNotification}>5</div>
           </button>
-          <DropdownMenu />
+          {showMenu ? <DropdownMenu /> : ""}
         </div>
       </div>
     </div>
