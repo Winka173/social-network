@@ -3,7 +3,6 @@ import styles from "./LeftBar.module.css";
 import { bookmark, friend, group, page, messenger } from "../../Assets/index";
 import { useAuthContext } from "../../Store/AuthContext";
 import Button from "../../UI/Button";
-import ToggleDarkMode from "./ToggleDarkMode";
 
 const LeftBar = () => {
   const { user } = useAuthContext();
@@ -100,7 +99,6 @@ const LeftBar = () => {
           </Button>
         ))}
       </div>
-      <ToggleDarkMode />
     </div>
   );
 };

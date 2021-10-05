@@ -58,6 +58,7 @@ function AddStatusModal({ isOpen, closeModal }) {
       time: moment(new Date()).toString(),
       comments: [],
       likes: [],
+      uid: user.uid,
     };
     let docId = "";
     dbRef
