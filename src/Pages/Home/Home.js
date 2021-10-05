@@ -4,7 +4,6 @@ import TopBar from "./TopBar";
 import LeftBar from "./LeftBar";
 import NewFeed from "./NewFeed";
 import RightBar from "./RightBar";
-import Notification from "./Notification";
 
 const Home = () => {
   return (
@@ -21,7 +20,6 @@ const Home = () => {
           <RightBar />
         </div>
       </div>
-      <Notification />
     </div>
   );
 };

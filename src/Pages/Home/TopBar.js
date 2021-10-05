@@ -13,10 +13,12 @@ import { useHistory } from "react-router";
 import { useAuthContext } from "../../Store/AuthContext";
 import Button from "../../UI/Button";
 import DropdownMenu from "./DropdownMenu";
+import Notification from "./Notification";
 
 const TopBar = () => {
   const { user } = useAuthContext();
-  const [showMenu, setshowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const history = useHistory();
   const navigateMessenger = () => {
     history.push("/messenger");
@@ -59,19 +61,25 @@ const TopBar = () => {
           />
           <span className={styles.userName}>{user.displayName}</span>
         </button>
-
         <button onClick={navigateMessenger} className={styles.userButton}>
           <img src={mess} alt="mess" />
           <div className={styles.userNotification}>5</div>
         </button>
-        <button className={styles.userButton}>
+
+        <button
+          onClick={() => {
+            setShowNotification(true);
+          }}
+          className={styles.userButton}
+        >
           <img src={notification} alt="notification" />
           <div className={styles.userNotification}>5</div>
         </button>
+        <Notification show={showNotification} callback={setShowNotification} />
 
         <div className={styles.dropdownMenu}>
           <button
-            onClick={() => setshowMenu(!showMenu)}
+            onClick={() => setShowMenu(!showMenu)}
             className={styles.userButton}
           >
             <img src={setting} alt="setting" />

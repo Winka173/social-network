@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import styles from "./Notification.module.css";
 import { CloseOutlined } from "@ant-design/icons";
 
-const Notification = ({ show = true }) => {
+const Notification = ({ show, callback }) => {
   const [showing, setShowing] = useState(false);
-  useEffect(() => {
-    if (show) {
-      setTimeout(() => {
-        setShowing(false);
-      }, 5800);
-    }
-  }, [show]);
 
   useEffect(() => {
     setShowing(show);
-  }, [show]);
+    if (show) {
+      setTimeout(() => {
+        setShowing(false);
+        callback(false);
+      }, 5800);
+    }
+  }, [show, callback]);
 
   if (showing) {
     return (
