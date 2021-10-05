@@ -1,19 +1,30 @@
 import React from "react";
 import styles from "./ToggleDarkMode.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import { toggleThemeActions } from "../../Store/theme-slice";
 
 const ToggleDarkMode = () => {
-  const darkTheme = useSelector((state) => state.darkTheme);
   const dispatch = useDispatch();
 
-  const toggleMode = () => {
-    dispatch({ type: "theme" });
+  // Access theme state in theme reducer
+  const theme = useSelector((state) => state.theme.theme);
+
+  const toggleMode = (event) => {
+    if (event.target.checked) {
+      // old redux dispatch
+      // dispatch({ type: "lightTheme" });
+      dispatch(toggleThemeActions.lightTheme());
+    } else {
+      // old redux dispatch
+      // dispatch({ type: "darkTheme" });
+      dispatch(toggleThemeActions.darkTheme());
+    }
   };
   return (
     <React.Fragment>
       <label className={styles.toggle}>
         <input
-          checked={darkTheme}
+          checked={theme === "light"}
           onChange={toggleMode}
           className={styles.input}
           type="checkbox"
