@@ -2,10 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const toggleNotificationSlice = createSlice({
   name: "toggleNotification",
-  initialState: { showNotification: false },
+  initialState: {},
   reducers: {
-    toggle(state) {
-      state.showNotification = !state.showNotification;
+    createNotification(state, action) {
+      state.notification = {
+        userImg: action.payload.userImg,
+        userName: action.payload.userName,
+        description: action.payload.description,
+      };
+    },
+    clearNotification(state) {
+      state.notification = {};
     },
   },
 });

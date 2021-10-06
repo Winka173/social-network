@@ -20,13 +20,13 @@ const Status = ({ post, id }) => {
   const [isLiked, setIsLiked] = useState(false);
   const commentInputRef = useRef();
 
-  const setlikeStatus = () => {
+  const setlikeStatus = async () => {
     const dbRef = db.collection("posts").doc(id);
     !isLiked
-      ? dbRef.update({
+      ? await dbRef.update({
           likes: [...post.likes, user.uid],
         })
-      : dbRef.update({
+      : await dbRef.update({
           likes: post.likes.filter((like) => like !== user.uid),
         });
     setIsLiked(!isLiked);

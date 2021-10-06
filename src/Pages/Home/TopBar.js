@@ -13,15 +13,26 @@ import { useHistory } from "react-router";
 import { useAuthContext } from "../../Store/AuthContext";
 import Button from "../../UI/Button";
 import DropdownMenu from "./DropdownMenu";
-import Notification from "./Notification";
+import { useDispatch } from "react-redux";
+import { toggleNotificationActions } from "../../Store/notification-slice";
 
 const TopBar = () => {
   const { user } = useAuthContext();
   const [showMenu, setShowMenu] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
   const history = useHistory();
   const navigateMessenger = () => {
     history.push("/messenger");
+  };
+  const dispatch = useDispatch();
+
+  const testNotification = () => {
+    dispatch(
+      toggleNotificationActions.createNotification({
+        userImg: user.photoURL,
+        userName: user.displayName,
+        description: "has like your status",
+      })
+    );
   };
 
   return (
@@ -66,16 +77,10 @@ const TopBar = () => {
           <div className={styles.userNotification}>5</div>
         </button>
 
-        <button
-          onClick={() => {
-            setShowNotification(true);
-          }}
-          className={styles.userButton}
-        >
+        <button onClick={testNotification} className={styles.userButton}>
           <img src={notification} alt="notification" />
           <div className={styles.userNotification}>5</div>
         </button>
-        <Notification show={showNotification} callback={setShowNotification} />
 
         <div className={styles.dropdownMenu}>
           <button

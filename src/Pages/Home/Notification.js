@@ -1,46 +1,53 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Notification.module.css";
 import { CloseOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { useAuthContext } from "../../Store/AuthContext";
 
-const Notification = ({ show, callback }) => {
-  const [showing, setShowing] = useState(false);
+let init = true;
+
+const Notification = () => {
+  const [show, setShow] = useState(false);
+  const notification = useSelector((state) => state.notification.notification);
+  const dispatch = useDispatch();
+  const { user } = useAuthContext();
 
   useEffect(() => {
-    setShowing(show);
+    if (init) {
+      init = false;
+      return;
+    }
     let timer;
+    if (notification) {
+      setShow(true);
 
-    if (show) {
       timer = setTimeout(() => {
-        setShowing(false);
-        callback(false);
-      }, 5800);
+        setShow(false);
+      }, 4800);
     }
     return () => {
       clearTimeout(timer);
     };
-  }, [show, callback]);
+  }, [notification, dispatch, user.uid]);
 
-  if (showing) {
+  if (show) {
     return (
       <div className={styles.notification}>
         <div className={styles.title}>
           <span>New Notification</span>
-          <button>
+          <button onClick={() => setShow(false)}>
             <CloseOutlined className={styles.closeIcon} />
           </button>
         </div>
         <div className={styles.body}>
           <img
             className={styles.rightBarItemIcon}
-            src="https://1.bp.blogspot.com/-GFEx6MCOc5U/YQnlwK9rt7I/AAAAAAAAv2Y/5atxGCDP3f04gnoEcPozTfn04478FFFlQCNcBGAsYHQ/s0/avatar-anime.jpg"
+            src={notification.userImg}
             alt="avatar"
           />
           <div>
             <div className={styles.description}>
-              <b>Lorem Ipsum</b> s simply dummy text of the printing and type
-              setting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book.
+              <b>{notification.userName}</b> {notification.description}
             </div>
             <div className={styles.time}>a few seconds ago</div>
           </div>
