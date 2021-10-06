@@ -3,10 +3,11 @@ import styles from "./Notification.module.css";
 import { CloseOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { useAuthContext } from "../../Store/AuthContext";
+import reactDom from "react-dom";
 
 let init = true;
 
-const Notification = () => {
+const NotificationOverlay = () => {
   const [show, setShow] = useState(false);
   const notification = useSelector((state) => state.notification.notification);
   const dispatch = useDispatch();
@@ -42,12 +43,13 @@ const Notification = () => {
         <div className={styles.body}>
           <img
             className={styles.rightBarItemIcon}
-            src={notification.userImg}
+            src={notification.userImg || ""}
             alt="avatar"
           />
           <div>
             <div className={styles.description}>
-              <b>{notification.userName}</b> {notification.description}
+              <b>{notification.userName || ""}</b>{" "}
+              {notification.description || ""}
             </div>
             <div className={styles.time}>a few seconds ago</div>
           </div>
@@ -57,6 +59,17 @@ const Notification = () => {
     );
   }
   return "";
+};
+
+const Notification = () => {
+  return (
+    <React.Fragment>
+      {reactDom.createPortal(
+        <NotificationOverlay />,
+        document.getElementById("notification-root")
+      )}
+    </React.Fragment>
+  );
 };
 
 export default Notification;
