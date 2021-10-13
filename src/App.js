@@ -1,21 +1,18 @@
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import "./App.css";
-import React, { useEffect } from "react";
+import React from "react";
 import { Home, Login, Messenger } from "./Pages/index";
 import { AuthProvider } from "./Store/AuthContext";
 import { Provider } from "react-redux";
 import store from "./Store/Redux";
-import { getToken } from "./Firebase/Firebase";
+import CloudMessage from "./Pages/Home/CloudMessage";
 
 function App() {
-  useEffect(() => {
-    getToken().then((data) => console.log(data));
-  }, []);
-
   return (
     <BrowserRouter>
       <Provider store={store}>
         <AuthProvider>
+          <CloudMessage />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
