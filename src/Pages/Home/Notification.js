@@ -3,6 +3,7 @@ import styles from "./Notification.module.css";
 import { CloseOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import reactDom from "react-dom";
+import { toggleNotificationActions } from "../../Store/notification-slice";
 
 let init = true;
 
@@ -16,15 +17,20 @@ const NotificationOverlay = () => {
       init = false;
       return;
     }
-    if (notification) {
+    if (Object.keys(notification).length !== 0) {
       setShow(true);
     }
-  }, [notification, dispatch]);
+  }, [notification]);
 
   const onAnimationEnd = (event) => {
     if (event.animationName.includes("fadeout")) {
-      setShow(false);
+      closeNotification();
     }
+  };
+
+  const closeNotification = () => {
+    setShow(false);
+    dispatch(toggleNotificationActions.clearNotification());
   };
 
   if (show) {
@@ -32,7 +38,7 @@ const NotificationOverlay = () => {
       <div onAnimationEnd={onAnimationEnd} className={styles.notification}>
         <div className={styles.title}>
           <span>New Notification</span>
-          <button onClick={() => setShow(false)}>
+          <button onClick={closeNotification}>
             <CloseOutlined className={styles.closeIcon} />
           </button>
         </div>
